@@ -1,27 +1,32 @@
 import './Header.css'
+
+import colab from './assets/Google_Colaboratory_SVG_Logo.svg'
+import warning from './assets/warning-circle-svgrepo-com.svg'
+
 import { projects } from './projects.json'
-import { useCallback, useRef } from 'react'
+import { useRef } from 'react'
 
 export type Project = typeof projects[number]
 
+function isDarkMode(): boolean {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+}
 
 function Project(project: Project, close: (project?: false | Project) => void) {
     return (<button
         key={project.id}
         onClick={() => {
             close(project)
-        }}>{project['ru-name']}</button>)
+        }}>{project['ru-name']}
+        {project.tags.includes('colab') && <img className='tag-logo' src={colab} alt="Google Colab logo" title='Google Colab'/> }
+        {isDarkMode() && project.tags.includes('flash-warning') && <img className='tag-logo' src={warning} alt="Warning sign" title='Осторожно, без тёмной темы'/>}
+        </button>)
 }
 
 function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
     const projectDialogRef = useRef<null | HTMLDialogElement>(null);
     const projectDialogContentWrapperRef = useRef<null | HTMLDivElement>(null);
-    const handleClick = useCallback((e: MouseEvent) => {
-        console.log({ open: projectDialogRef?.current?.open, e })
-        if (!projectDialogContentWrapperRef?.current?.contains(e.target as Node | null)) {
-            close();
-        }
-    }, []);
+  
 
     const open = () => {
         if (!projectDialogRef?.current) {
@@ -43,9 +48,15 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
         if (project) {
             props.onProjectChange(project)
         }
-    }
+    };
 
-    const interestingProjects = projects.filter(project => project.type === 'interesting').map(project =>
+    const handleClick = (e: MouseEvent) => {
+        if (!projectDialogContentWrapperRef?.current?.contains(e.target as Node | null)) {
+            close();
+        }
+    };
+
+    const interestingProjects = projects.filter(project => project.tags.includes('interesting')).map(project =>
         Project(project, close)
     );
 
@@ -63,7 +74,7 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
                         </section>
                         <h3>Учебные</h3>
                         <section className='project-container'>
-                            {projects.filter(project => project.type === 'study').map(project =>
+                            {projects.filter(project => project.tags.includes('study')).map(project =>
                                 Project(project, close)
                             )}
                         </section>

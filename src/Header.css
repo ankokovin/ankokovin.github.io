@@ -15,3 +15,7 @@ dialog {
 .project-container {
     display: grid;
 }
+
+.tag-logo {
+    height: 1em;
+}
