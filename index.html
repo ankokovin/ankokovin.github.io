@@ -1,63 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Моя страничка</title>
-    <link rel="stylesheet" href="site.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</head>
-<body>
-    <script src="site.js"></script>
-    <nav id="projects" class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-brand btn" onclick="to_about()">
-            <i class="material-icons">
-                home
-            </i>
-        </button>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Учебные проекты
-                </a>
-                <div class="dropdown-menu" area-labelledby="navbarDropdown">
-                    <button id="CompGraphics" class="dropdown-item btn" onclick="show_project(this.id)" href='https://ankokovin.github.io/CompGraphics/''>Компьютерная графика</button>
-                    <button id="BlocklyForHouse" class="dropdown-item btn" onclick="show_project(this.id)" href='https://ankokovin.github.io/BlocklyForHouse/'>Командный проект</button>
-                    <button id="FifteenGame" class="dropdown-item btn" onclick="show_project(this.id)" href='https://ankokovin.github.io/FifteenGame/'>Пятнашка 3х3</button>
-                    <a id="MusicDataSet" class="dropdown-item btn" href='https://colab.research.google.com/drive/1JyOQYY--uKD10rY8pByVhI7BQWmpdJqQ' target="_blank" rel="noopener noreferrer">Обработка музыкального датасета</a>
-                    <a id="ExpertSystem" class="dropdown-item btn" href='https://colab.research.google.com/drive/1QKQbU9ebdBT6Icv381UYobYJwaoz7TOk' target="_blank" rel="noopener noreferrer">Экспертная система</a>
-                    <a id="Tree" class="dropdown-item btn" href='https://colab.research.google.com/drive/1mrUcb4Z6tVYBsT7r6qax4uVmsMIHiADr' target="_blank" rel="noopener noreferrer">Интуитивные деревья</a>
-                    <a id="Distances" class="dropdown-item btn" href='https://colab.research.google.com/drive/1QKQbU9ebdBT6Icv381UYobYJwaoz7TOk' target="_blank" rel="noopener noreferrer">Метрики расстояния</a>
-                    <button id="mag" class="dropdown-item btn" onclick="show_project(this.id)" href='https://ankokovin.github.io/smartFactory-miltiagentagentSim/'>Умная фабрика</button>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="https://github.com/ankokovin" class="nav-link">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="https://t.me/ankokovin" class="nav-link">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/telegram.svg" />
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="skype:live:2d3d740cb9135b44?chat" class="nav-link">
-                    <img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/skype.svg" />
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <iframe id="project-view"></iframe>
-    <main id="about" class="text-center">
-        <h1>Коковин Алексей Николаевич</h1>
-        <p>Здесь будет обо мне</p>
-    </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
