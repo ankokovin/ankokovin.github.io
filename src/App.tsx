@@ -1,31 +1,49 @@
-import { useState } from 'react'
+import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import Header, { Project } from './Header'
+import { useCallback, useState } from 'react'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [currentProject, setCurrentProject] = useState<null | Project>(null);
+
+  const onProjectChange = useCallback((project: null | Project) => {
+    console.log({project})
+
+    if (project?.link) {
+      window.open(project.link)
+      return
+    }
+
+    setCurrentProject(project)
+  },[]);
 
   return (
     <>
-      <header>
-        <div>
-          <a href="https://vitejs.dev" target="_blank">
-            <img src={viteLogo} className="logo" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank">
-            <img src={reactLogo} className="logo react" alt="React logo" />
-          </a>
-        </div>
-      </header>
+      <Header onProjectChange={onProjectChange} />
       <main>
-        <h1>Vite + React</h1>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-        </div>
+        {currentProject != null ? (<iframe src={`/${currentProject.id}`}></iframe>) :
+        (<>
+        <h1>Коковин Алексей</h1>
+        <section>
+          <p>Здесь наверное будет обо мне?</p>
+        </section>
+        </>
+        )}
       </main>
+      <footer>
+        Powered by
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+
+      </footer>
     </>
   )
 }

@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+dialog {
+    padding: 0;
+}
+
+.dialog-wrapper {
+    padding: 16px;
+}
+
+.project-container {
+    display: grid;
+}

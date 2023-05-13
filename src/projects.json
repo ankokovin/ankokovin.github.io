@@ -1,0 +1,50 @@
+{
+    "projects": [
+        {
+            "id": "MusicDataSet",
+            "ru-name": "Обработка музыкального датасета",
+            "link": "https://colab.research.google.com/drive/1JyOQYY--uKD10rY8pByVhI7BQWmpdJqQ",
+            "type": "study"
+        },
+        {
+
+            "id": "ExpertSystem",
+            "ru-name": "Экспертная система",
+            "link": "https://colab.research.google.com/drive/1QKQbU9ebdBT6Icv381UYobYJwaoz7TOk",
+            "type": "study"
+        },
+        {
+            "id": "CompGraphics",
+            "ru-name": "Компьютерная графика",
+            "type": "study"
+        },
+        {
+            "id": "BlocklyForHouse",
+            "ru-name": "Командный проект",
+            "type": "study"
+        },
+        {
+            "id": "FifteenGame",
+            "ru-name": "Пятнашка 3х3",
+            "type": "study"
+        },
+        {
+            "id": "Tree",
+            "ru-name": "Интуитивные деревья",
+            "link": "https://colab.research.google.com/drive/1mrUcb4Z6tVYBsT7r6qax4uVmsMIHiADr",
+            "type": "study"
+        },
+        {
+            "id": "Distances",
+            "ru-name": "Метрики расстояния",
+            "link": "https://colab.research.google.com/drive/15wreC4ccf4anDHQgbVal7GsFg0hdzImK",
+            "type": "study"
+        },
+        {
+            "id": "smartFactory-miltiagentagentSim",
+            "ru-name": "Умная фабрика",
+            "type": "study"
+        }
+        
+    ]
+}
