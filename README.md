@@ -1,6 +1,11 @@
 # Моя личная страничка
 [![Deploy static content to Pages](https://github.com/ankokovin/ankokovin.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/ankokovin/ankokovin.github.io/actions/workflows/deploy.yml) <img src="https://img.shields.io/github/last-commit/ankokovin/ankokovin.github.io/main"/>
 
+<img src="https://raw.githubusercontent.com/ankokovin/ankokovin.github.io/badges/lighthouse_results/lighthouse_accessibility.svg">
+<img src="https://raw.githubusercontent.com/ankokovin/ankokovin.github.io/badges/lighthouse_results/lighthouse_best-practices.svg">
+<img src="https://raw.githubusercontent.com/ankokovin/ankokovin.github.io/badges/lighthouse_results/lighthouse_performance.svg">
+<img src="https://raw.githubusercontent.com/ankokovin/ankokovin.github.io/badges/lighthouse_results/lighthouse_seo.svg">
+
 English follows russian.
 
 Страничка с различными проектами, разработанными мной <del>в основном</del> в рамках учёбы.

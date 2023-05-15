@@ -60,19 +60,29 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
 
-  lighthouse-check:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - run: mkdir /tmp/artifacts
-    - name: Run Lighthouse
-      uses: foo-software/lighthouse-check-action@master
-      with:
-        outputDirectory: /tmp/artifacts
-        urls: 'https://ankokovin.github.io'
-    - name: Upload artifacts
-      uses: actions/upload-artifact@master
-      with:
-        name: Lighthouse reports
-        path: /tmp/artifacts
+  lighthouse:
+      runs-on: ubuntu-latest
+      needs: deploy
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{secrets.token}}
+          ref: badges
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      - run: npx lighthouse-badges --save-report --url https://ankokovin.github.io/ --output-path lighthouse_results
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './lighthouse_results'
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Github Action
+          author_email: mail@example.com
+          message: 'Lighthouse badges'
+          add: './lighthouse_results'
