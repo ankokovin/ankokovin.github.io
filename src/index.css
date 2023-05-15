@@ -15,6 +15,10 @@
 }
 
 
+.logo {
+  aspect-ratio: 1 / 1;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

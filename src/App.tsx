@@ -39,17 +39,17 @@ function App() {
                   Страничка очень WIP
                 </summary>
                 <section className='todos'>
-                  <input type="checkbox" checked  /><span>Минимум</span>
-                  <input type="checkbox" disabled /><span>Дополнить шапку ссылками</span>
-                  <input type="checkbox" disabled /><span>Описания проектов</span>
-                  <input type="checkbox" disabled /><span>Ранжирование проектов</span>
-                  <input type="checkbox" disabled /><span>favicon</span>
-                  <input type="checkbox" disabled /><span>Dark mode toggle</span>
-                  <input type="checkbox" disabled /><span>Попробовать пофиксить вёрстку</span>
-                  <input type="checkbox" disabled /><span>Попробывать пофиксить iframe</span>
-                  <input type="checkbox" disabled /><span>English</span>
-                  <input type="checkbox" disabled /><span>Написать о себе</span>
-                  <input type="checkbox" disabled /><span>Более интересные проекты</span>
+                  <input type="checkbox" checked  id="minimum"/>                <label htmlFor="minimum">Минимум</label>
+                  <input type="checkbox" disabled id="add-links"/>              <label htmlFor="add-links">Дополнить шапку ссылками</label>
+                  <input type="checkbox" disabled id="add-project-annotations"/><label htmlFor="add-project-annotations">Описания проектов</label>
+                  <input type="checkbox" disabled id="add-project-ranking"/>    <label htmlFor="add-project-ranking">Ранжирование проектов</label>
+                  <input type="checkbox" disabled id="add-custom-favicon"/>     <label htmlFor="add-custom-favicon">favicon</label>
+                  <input type="checkbox" disabled id="add-dark-mode-toggle"/>   <label htmlFor="add-dark-mode-toggle">Dark mode toggle</label>
+                  <input type="checkbox" disabled id="fix-layput"/>             <label htmlFor="fix-layput">Попробовать пофиксить вёрстку</label>
+                  <input type="checkbox" disabled id="fix-iframes"/>            <label htmlFor="fix-iframes">Попробывать пофиксить iframe</label>
+                  <input type="checkbox" disabled id="add-english"/>            <label htmlFor="add-english">English</label>
+                  <input type="checkbox" disabled id="add-about"/>              <label htmlFor="add-about">Написать о себе</label>
+                  <input type="checkbox" disabled id="better-projects"/>        <label htmlFor="better-projects">Более интересные проекты</label>
                 </section>
               </details>
             </section>
