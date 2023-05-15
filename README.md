@@ -6,13 +6,15 @@
 <img src="https://raw.githubusercontent.com/ankokovin/ankokovin.github.io/badges/lighthouse_results/lighthouse_performance.svg">
 <img src="https://raw.githubusercontent.com/ankokovin/ankokovin.github.io/badges/lighthouse_results/lighthouse_seo.svg">
 
+https://ankokovin.github.io
+
 English follows russian.
 
 Страничка с различными проектами, разработанными мной <del>в основном</del> в рамках учёбы.
 
-Страничка <b>будет</b> написана на React + Typescript, просто потому что.
+Страничка написана на React + Typescript, просто потому что.
 
-Изначально страничка была на ванильном JS с jQuery <del>(фу)</del>, исходники в папке <a href="/legacy">legacy</a>. <del>Возможно добавлю как-то внутрь пайплайна?</del>
+Изначально страничка была на ванильном JS с jQuery <del>(фу)</del>, https://ankokovin.github.io/legacy/
 
 # My personal site
 
@@ -20,4 +22,4 @@ This page contains various my projects created <del>mostly</del> while getting m
 
 This page <del>is</del> will be written in React + Typescript just cause. Currently it is in russian, english translation is planned (just for the page, not for old projects).  
 
-Initially it was Vanila JS with jQuery <del>(boo)</del>, it is saved in <a href="/legacy">legacy</a> folder.
+Initially it was Vanila JS with jQuery <del>(boo)</del>, https://ankokovin.github.io/legacy/
