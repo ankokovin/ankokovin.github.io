@@ -1,4 +1,6 @@
 # Моя личная страничка
+[![Deploy static content to Pages](https://github.com/ankokovin/ankokovin.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/ankokovin/ankokovin.github.io/actions/workflows/deploy.yml)
+
 English follows russian.
 
 Страничка с различными проектами, разработанными мной <del>в основном</del> в рамках учёбы.
