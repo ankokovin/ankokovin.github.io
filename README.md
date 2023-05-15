@@ -1,5 +1,5 @@
 # Моя личная страничка
-[![Deploy static content to Pages](https://github.com/ankokovin/ankokovin.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/ankokovin/ankokovin.github.io/actions/workflows/deploy.yml)
+[![Deploy static content to Pages](https://github.com/ankokovin/ankokovin.github.io/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/ankokovin/ankokovin.github.io/actions/workflows/deploy.yml) <img src="https://img.shields.io/github/last-commit/ankokovin/ankokovin.github.io/main"/>
 
 English follows russian.
 
