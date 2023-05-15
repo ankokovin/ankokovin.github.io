@@ -1,3 +1,5 @@
+import { DarkModeToggle } from './DarkModeToggle'
+import { isDarkMode } from './DarkModeUtils'
 import './Header.css'
 
 import colab from './assets/Google_Colaboratory_SVG_Logo.svg'
@@ -8,25 +10,21 @@ import { useRef } from 'react'
 
 export type Project = typeof projects[number]
 
-function isDarkMode(): boolean {
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-}
-
 function Project(project: Project, close: (project?: false | Project) => void) {
     return (<button
         key={project.id}
         onClick={() => {
             close(project)
         }}>{project['ru-name']}
-        {project.tags.includes('colab') && <img className='tag-logo' src={colab} alt="Google Colab logo" title='Google Colab'/> }
-        {isDarkMode() && project.tags.includes('flash-warning') && <img className='tag-logo' src={warning} alt="Warning sign" title='Осторожно, без тёмной темы'/>}
-        </button>)
+        {project.tags.includes('colab') && <img className='tag-logo' src={colab} alt="Google Colab logo" title='Google Colab' />}
+        {isDarkMode() && project.tags.includes('flash-warning') && <img className='tag-logo' src={warning} alt="Warning sign" title='Осторожно, без тёмной темы' />}
+    </button>)
 }
 
 function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
     const projectDialogRef = useRef<null | HTMLDialogElement>(null);
     const projectDialogContentWrapperRef = useRef<null | HTMLDivElement>(null);
-  
+
 
     const open = () => {
         if (!projectDialogRef?.current) {
@@ -62,6 +60,7 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 
     return (
         <header>
+            <DarkModeToggle />
             <div>
                 <button onClick={open}>Выбрать проект</button>
                 <dialog ref={projectDialogRef}>
@@ -70,7 +69,7 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
                         <button onClick={() => close(false)}>Главная</button>
                         <h3>Интересные</h3>
                         <section className='project-container'>
-                        {interestingProjects.length ? (interestingProjects) : <p>Таких <del>пока</del> нет &#128550;</p>}
+                            {interestingProjects.length ? (interestingProjects) : <p>Таких <del>пока</del> нет &#128550;</p>}
                         </section>
                         <h3>Учебные</h3>
                         <section className='project-container'>

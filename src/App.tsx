@@ -39,17 +39,18 @@ function App() {
                   Страничка очень WIP
                 </summary>
                 <section className='todos'>
-                  <input type="checkbox" checked  id="minimum"/>                <label htmlFor="minimum">Минимум</label>
-                  <input type="checkbox" disabled id="add-links"/>              <label htmlFor="add-links">Дополнить шапку ссылками</label>
-                  <input type="checkbox" disabled id="add-project-annotations"/><label htmlFor="add-project-annotations">Описания проектов</label>
-                  <input type="checkbox" disabled id="add-project-ranking"/>    <label htmlFor="add-project-ranking">Ранжирование проектов</label>
-                  <input type="checkbox" disabled id="add-custom-favicon"/>     <label htmlFor="add-custom-favicon">favicon</label>
-                  <input type="checkbox" disabled id="add-dark-mode-toggle"/>   <label htmlFor="add-dark-mode-toggle">Dark mode toggle</label>
-                  <input type="checkbox" disabled id="fix-layput"/>             <label htmlFor="fix-layput">Попробовать пофиксить вёрстку</label>
-                  <input type="checkbox" disabled id="fix-iframes"/>            <label htmlFor="fix-iframes">Попробывать пофиксить iframe</label>
-                  <input type="checkbox" disabled id="add-english"/>            <label htmlFor="add-english">English</label>
-                  <input type="checkbox" disabled id="add-about"/>              <label htmlFor="add-about">Написать о себе</label>
-                  <input type="checkbox" disabled id="better-projects"/>        <label htmlFor="better-projects">Более интересные проекты</label>
+                  <input type="checkbox" checked readOnly id="minimum" />                <label htmlFor="minimum">Минимум</label>
+                  <input type="checkbox" disabled readOnly id="add-links" />              <label htmlFor="add-links">Дополнить шапку ссылками</label>
+                  <input type="checkbox" disabled readOnly id="add-project-annotations" /><label htmlFor="add-project-annotations">Описания проектов</label>
+                  <input type="checkbox" disabled readOnly id="add-project-ranking" />    <label htmlFor="add-project-ranking">Ранжирование проектов</label>
+                  <input type="checkbox" disabled readOnly id="add-custom-favicon" />     <label htmlFor="add-custom-favicon">favicon</label>
+                  <input type="checkbox" checked readOnly id="add-dark-mode-toggle" />   <label htmlFor="add-dark-mode-toggle">Dark mode toggle</label>
+                  <input type="checkbox" disabled readOnly id="style-dark-mode-toggle" /> <label htmlFor="style-dark-mode-toggle">Стиль для Dark mode toggle</label>
+                  <input type="checkbox" disabled readOnly id="fix-layput" />             <label htmlFor="fix-layput">Попробовать пофиксить вёрстку</label>
+                  <input type="checkbox" disabled readOnly id="fix-iframes" />            <label htmlFor="fix-iframes">Попробывать пофиксить iframe</label>
+                  <input type="checkbox" disabled readOnly id="add-english" />            <label htmlFor="add-english">English</label>
+                  <input type="checkbox" disabled readOnly id="add-about" />              <label htmlFor="add-about">Написать о себе</label>
+                  <input type="checkbox" disabled readOnly id="better-projects" />        <label htmlFor="better-projects">Более интересные проекты</label>
                 </section>
               </details>
             </section>
