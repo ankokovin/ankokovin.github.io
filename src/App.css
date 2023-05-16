@@ -69,6 +69,11 @@ iframe {
   justify-content: center;    
 }
 
+.todos img {
+  width: 86px;
+  height: 20px;
+}
+
 section {
   display: flex;
   flex-direction: column;

@@ -11,6 +11,11 @@ function DisplayProject(project: Project) {
   </div>
 }
 
+function GithubIssueBadge({id} : {id : number}){
+  return <img alt="GitHub issue/pull request detail" src={`https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/${id}.svg`}/> 
+} 
+
+
 function App() {
 
   const [currentProject, setCurrentProject] = useState<null | Project>(null);
@@ -41,15 +46,15 @@ function App() {
                 <section className='todos'>
                   <input type="checkbox" checked readOnly id="minimum" />                <label htmlFor="minimum">Минимум</label>
                   <input type="checkbox" checked readOnly id="add-dark-mode-toggle" />   <label htmlFor="add-dark-mode-toggle">Dark mode toggle</label>
-                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/1"/><label>Дополнить шапку ссылками</label>
-                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/2"/><label>Описания проектов</label>
-                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/3"/><label>Ранжирование проектов</label>
-                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/4"/><label>Распределение проектов по времени</label>
-                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/5"/><label>favicon</label>
-                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/6"/><label>Стиль для Dark mode toggle</label>
-                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/7"/><label>Попробывать пофиксить iframe</label>
-                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/8"/><label>English</label>
-                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/9"/><label>Секция о себе</label>
+                  <GithubIssueBadge id={1}/><label>Дополнить шапку ссылками</label>
+                  <GithubIssueBadge id={2}/><label>Описания проектов</label>
+                  <GithubIssueBadge id={3}/><label>Ранжирование проектов</label>
+                  <GithubIssueBadge id={4}/><label>Распределение проектов по времени</label>
+                  <GithubIssueBadge id={5}/><label>favicon</label>
+                  <GithubIssueBadge id={6}/><label>Стиль для Dark mode toggle</label>
+                  <GithubIssueBadge id={7}/><label>Попробывать пофиксить iframe</label>
+                  <GithubIssueBadge id={8}/><label>English</label>
+                  <GithubIssueBadge id={9}/><label>Секция о себе</label>
                   <input type="checkbox" disabled readOnly id="more-interesting-projects" /><label htmlFor="more-interesting-projects">Более интересные проекты</label>
                 </section>
               </details>
