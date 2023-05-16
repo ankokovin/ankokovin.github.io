@@ -60,6 +60,7 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 
     return (
         <header>
+            <a href="/">🏠</a>
             <DarkModeToggle />
             <div>
                 <button onClick={open}>Выбрать проект</button>

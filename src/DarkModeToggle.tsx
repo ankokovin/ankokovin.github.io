@@ -16,5 +16,7 @@ export function DarkModeToggle() {
         applyPreferredColorScheme(mode)
     }, [mode])
 
-    return <button onClick={toggleColorScheme}>{mode === 'dark' ? '🌞' : '🌚'}</button>
+    return <div>
+        <button onClick={toggleColorScheme}>{mode === 'dark' ? '🌞' : '🌚'}</button>
+        </div>
 }
