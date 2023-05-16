@@ -56,6 +56,7 @@ function App() {
                   <GithubIssueBadge id={8}/><label>English</label>
                   <GithubIssueBadge id={9}/><label>Секция о себе</label>
                   <input type="checkbox" disabled readOnly id="more-interesting-projects" /><label htmlFor="more-interesting-projects">Более интересные проекты</label>
+                  <GithubIssueBadge id={10}/><label>Блог</label>
                 </section>
               </details>
             </section>
