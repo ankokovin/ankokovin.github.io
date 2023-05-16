@@ -20,6 +20,12 @@
             "tags": ["study", "colab"]
         },
         {
+            "id": "ParanoidAndroid",
+            "ru-name": "Прогнозирование количества скачиваний приложения в Google Play",
+            "link": "https://colab.research.google.com/drive/1nMKGl4H_ZMHCux8mOZJM79pOoShcNGv3",
+            "tags": ["study", "colab"]
+        },
+        {
             "id": "CompGraphics",
             "ru-name": "Компьютерная графика",
             "tags": ["study", "flash-warning"]
