@@ -14,6 +14,12 @@
             "tags": ["study", "colab"]
         },
         {
+            "id": "CETINCalculator",
+            "ru-name": "Калькулятор стоимости разработки программного проекта по методике CETIN",
+            "link": "https://colab.research.google.com/drive/1qMfeiblphK4JUqsiPR_88f4hF9lD10hn#scrollTo=rYz6OfekzgG2",
+            "tags": ["study", "colab"]
+        },
+        {
             "id": "CompGraphics",
             "ru-name": "Компьютерная графика",
             "tags": ["study", "flash-warning"]
