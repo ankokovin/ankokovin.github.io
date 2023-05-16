@@ -36,21 +36,21 @@ function App() {
             <section>
               <details>
                 <summary>
-                  Страничка очень WIP
+                  Список TODO прямо по серерине, чтобы я не забыл 
                 </summary>
                 <section className='todos'>
                   <input type="checkbox" checked readOnly id="minimum" />                <label htmlFor="minimum">Минимум</label>
-                  <input type="checkbox" disabled readOnly id="add-links" />              <label htmlFor="add-links">Дополнить шапку ссылками</label>
-                  <input type="checkbox" disabled readOnly id="add-project-annotations" /><label htmlFor="add-project-annotations">Описания проектов</label>
-                  <input type="checkbox" disabled readOnly id="add-project-ranking" />    <label htmlFor="add-project-ranking">Ранжирование проектов</label>
-                  <input type="checkbox" disabled readOnly id="add-custom-favicon" />     <label htmlFor="add-custom-favicon">favicon</label>
                   <input type="checkbox" checked readOnly id="add-dark-mode-toggle" />   <label htmlFor="add-dark-mode-toggle">Dark mode toggle</label>
-                  <input type="checkbox" disabled readOnly id="style-dark-mode-toggle" /> <label htmlFor="style-dark-mode-toggle">Стиль для Dark mode toggle</label>
-                  <input type="checkbox" disabled readOnly id="fix-layput" />             <label htmlFor="fix-layput">Попробовать пофиксить вёрстку</label>
-                  <input type="checkbox" disabled readOnly id="fix-iframes" />            <label htmlFor="fix-iframes">Попробывать пофиксить iframe</label>
-                  <input type="checkbox" disabled readOnly id="add-english" />            <label htmlFor="add-english">English</label>
-                  <input type="checkbox" disabled readOnly id="add-about" />              <label htmlFor="add-about">Написать о себе</label>
-                  <input type="checkbox" disabled readOnly id="better-projects" />        <label htmlFor="better-projects">Более интересные проекты</label>
+                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/1"/><label>Дополнить шапку ссылками</label>
+                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/2"/><label>Описания проектов</label>
+                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/3"/><label>Ранжирование проектов</label>
+                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/4"/><label>Распределение проектов по времени</label>
+                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/5"/><label>favicon</label>
+                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/6"/><label>Стиль для Dark mode toggle</label>
+                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/7"/><label>Попробывать пофиксить iframe</label>
+                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/8"/><label>English</label>
+                  <img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/ankokovin/ankokovin.github.io/9"/><label>Секция о себе</label>
+                  <input type="checkbox" disabled readOnly id="more-interesting-projects" /><label htmlFor="more-interesting-projects">Более интересные проекты</label>
                 </section>
               </details>
             </section>
