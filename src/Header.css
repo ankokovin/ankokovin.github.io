@@ -1,7 +1,9 @@
 header {
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(2, 2rem) 5rem 2rem;
+    /* There should be a better way to do this*/
+    grid-template-columns: repeat(2, 2rem) 5rem repeat(2, 2rem);
+    align-items: center;
 }
 
 .header-logo {
@@ -10,6 +12,12 @@ header {
 
 .header-logo:hover {
     filter: drop-shadow(0 0 1em #ffffff);
+}
+
+@media (prefers-color-scheme: dark) {
+    .header-logo.logo-email {
+        fill: white;
+    }
 }
 
 dialog {

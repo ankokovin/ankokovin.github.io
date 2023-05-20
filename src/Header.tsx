@@ -2,6 +2,8 @@ import { DarkModeToggle } from './DarkModeToggle'
 import './Header.css'
 import githubLogo from './assets/github-mark.svg';
 import githubLogoWhite from './assets/github-mark-white.svg';
+import emailLogo from './assets/email-address-svgrepo-com.svg';
+import emailLogoWhite from './assets/email-address-svgrepo-com-white.svg';
 
 
 import colab from './assets/Google_Colaboratory_SVG_Logo.svg'
@@ -14,7 +16,7 @@ import DarkModeContext from './DarkModeContext';
 export type Project = typeof projects[number]
 
 
-function Tag(props: { tag: string}) {
+function Tag(props: { tag: string }) {
 
     const darkModeContext = useContext(DarkModeContext);
 
@@ -103,8 +105,11 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
                     </div>
                 </dialog>
             </div>
-            <a href="https://github.com/ankokovin/ankokovin.github.io" target='_blank' >
-                <img src={darkModeContext.isDarkMode ? githubLogoWhite : githubLogo} className="header-logo" alt="GitHub Invercat logo"/>
+            <a href="https://github.com/ankokovin/ankokovin.github.io" target='_blank' title="Код этой страницы">
+                <img src={darkModeContext.isDarkMode ? githubLogoWhite : githubLogo} className="header-logo" alt="GitHub Invercat logo" />
+            </a>
+            <a href="mailto:rycarok@gmail.com" title="rycarok@gmail.com">
+                <img src={darkModeContext.isDarkMode ? emailLogoWhite : emailLogo} className="header-logo logo-email" alt="Email icon" />
             </a>
         </header>)
 }
