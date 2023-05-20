@@ -1,6 +1,7 @@
 import './App.css'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import typescriptLogo from './assets/ts-logo-128.svg'
 import Header, { Project } from './Header'
 import { useCallback, useState } from 'react'
 import { Scheme, getPreferredColorScheme } from './DarkModeUtils';
@@ -92,6 +93,9 @@ export default function App() {
         </a>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+        <a href="https://www.typescriptlang.org/" target="_blank">
+          <img src={typescriptLogo} className="logo" alt="Typescript logo" />
         </a>
       </footer>
     </DarkModeContext.Provider>
