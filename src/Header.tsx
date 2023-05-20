@@ -11,22 +11,14 @@ import { useRef } from 'react'
 export type Project = typeof projects[number]
 
 
-function Tag(props: { tag: string, index: number }) {
-    const inner = TagInner(props.tag);
-    if (!inner) {
-        return null;
-    }
-    return <span>{inner}</span>
-}
-
-function TagInner(tag: string) {
-    if (tag === 'colab') {
+function Tag(props: { tag: string }) {
+    if (props.tag === 'colab') {
         return <img className='tag-logo' src={colab} alt="Google Colab logo" title='Google Colab' />;
     }
-    if (tag === 'flash-warning' && isDarkMode()) {
+    if (props.tag === 'flash-warning' && isDarkMode()) {
         return <img className='tag-logo' src={warning} alt="Warning sign" title='Осторожно, без тёмной темы' />;
     }
-    if (tag === 'no-mobile') {
+    if (props.tag === 'no-mobile') {
         return <span className='tag-strikethrough' title='Не расчитан на мобильный'>📱</span>;
     }
     return null;
@@ -39,7 +31,7 @@ function Project(project: Project, close: (project?: false | Project) => void) {
         onClick={() => {
             close(project)
         }}>{project['ru-name']}
-        {project.tags.map((tag, index) => <Tag tag={tag} index={index} />)}
+        {project.tags.map((tag, index) => <Tag tag={tag} key={index} />)}
     </button>)
 }
 
