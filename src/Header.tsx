@@ -4,7 +4,8 @@ import githubLogo from './assets/github-mark.svg';
 import githubLogoWhite from './assets/github-mark-white.svg';
 import emailLogo from './assets/email-address-svgrepo-com.svg';
 import emailLogoWhite from './assets/email-address-svgrepo-com-white.svg';
-
+import telegramLogoWhite from './assets/telegram-fill-svgrepo-com-white.svg';
+import telegramLogo from './assets/telegram-fill-svgrepo-com.svg';
 
 import colab from './assets/Google_Colaboratory_SVG_Logo.svg'
 import warning from './assets/warning-circle-svgrepo-com.svg'
@@ -41,6 +42,20 @@ function Project(project: Project, close: (project?: false | Project) => void) {
         }}>{project['ru-name']}
         {project.tags.map((tag, index) => <Tag tag={tag} key={index} />)}
     </button>)
+}
+
+function Logo(props: {
+    href: string;
+    title: string;
+    darkModeImg: string;
+    lightModeImg: string;
+    alt: string;
+}) {
+    const darkModeContext = useContext(DarkModeContext);
+
+    return <a href={props.href} title={props.title} target="_blank">
+        <img src={darkModeContext.isDarkMode ? props.darkModeImg : props.lightModeImg} alt={props.alt} className="header-logo" />
+    </a>
 }
 
 function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
@@ -80,8 +95,6 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
         Project(project, close)
     );
 
-    const darkModeContext = useContext(DarkModeContext);
-
     return (
         <header>
             <a href="/">🏠</a>
@@ -105,12 +118,28 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
                     </div>
                 </dialog>
             </div>
-            <a href="https://github.com/ankokovin/ankokovin.github.io" target='_blank' title="Код этой страницы">
-                <img src={darkModeContext.isDarkMode ? githubLogoWhite : githubLogo} className="header-logo" alt="GitHub Invercat logo" />
-            </a>
-            <a href="mailto:rycarok@gmail.com" title="rycarok@gmail.com">
-                <img src={darkModeContext.isDarkMode ? emailLogoWhite : emailLogo} className="header-logo logo-email" alt="Email icon" />
-            </a>
+
+            <Logo
+                href="https://github.com/ankokovin/ankokovin.github.io"
+                title="Код этой страницы"
+                darkModeImg={githubLogoWhite}
+                lightModeImg={githubLogo}
+                alt="GitHub Invercat logo"
+            />
+            <Logo
+                href="mailto:rycarok@gmail.com"
+                title="rycarok@gmail.com"
+                darkModeImg={emailLogoWhite}
+                lightModeImg={emailLogo}
+                alt="Email icon"
+            />
+            <Logo
+                href="https://t.me/ankokovin"
+                title="Мой Telegram"
+                darkModeImg={telegramLogoWhite}
+                lightModeImg={telegramLogo}
+                alt="Telegram logo"
+            />
         </header>)
 }
 
