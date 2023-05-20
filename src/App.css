@@ -1,6 +1,6 @@
 #root {
-  margin: 0 auto;
-  padding: 2rem;
+  --body-margin: 8px;
+  margin: var(--body-margin);
   text-align: center;
 }
 
@@ -28,9 +28,11 @@
   "header"
   "main"
   "footer";
+  grid-template-columns: fit-content ;
   grid-template-rows: 50px 1fr 100px;
   /*align-items: center;*/
   height: 95vh;
+  
 }
 
 header {
@@ -44,16 +46,30 @@ main {
 footer {
   grid-area: footer;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: 1fr 1fr;
+
   place-content: center end;
 }
 
-@media (min-width: 1000px) {
+footer > p {
+  grid-column: span 2;
+}
+
+@media (min-width: 600px) {
   #root {
     grid-template-areas: 
     "header footer"
     "main main";
     grid-template-rows: 100px 1fr;
+    --body-margin: 20px;
+  }
+
+  footer {
+    grid-template-columns: repeat(3, 100px);
+  }
+
+  footer > p {
+    grid-column: span 1;
   }
 }
 
@@ -65,7 +81,7 @@ iframe {
 
 .todos {
   display: grid;
-  grid-template-columns: 86px 20rem;
+  grid-template-columns: 86px minmax(calc(100% - 86px), 20rem);
   justify-content: center;    
 }
 
@@ -82,7 +98,6 @@ section {
 
 details {
   border: 1px solid #aaa;
-  width: fit-content;
   border-radius: 4px;
   padding: 0.5em 0.5em 0;
 }
@@ -95,7 +110,6 @@ details[open] summary {
   border-bottom: 1px solid #aaa;
   margin-bottom: 0.5em;
 }
-
 
 @keyframes logo-spin {
   from {
