@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react";
-import { applyPreferredColorScheme, invert, savePreferredColorScheme } from "./DarkModeUtils";
-import DarkModeContext from "./DarkModeContext";
+import DarkModeContext from "Context/DarkModeContext";
+import { applyPreferredColorScheme, invert, savePreferredColorScheme } from "../../DarkModeUtils";
 
 
-export function DarkModeToggle() {
+export default function DarkModeToggle() {
 
     const darkModeContext = useContext(DarkModeContext);
 

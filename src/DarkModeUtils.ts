@@ -1,9 +1,9 @@
-export type Scheme = "dark" | "light";
+import { Scheme } from "Types";
 
-
-function isDarkMode(): boolean {
+export function isDarkMode(): boolean {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
 }
+
 
 export function invert(scheme: Scheme): Scheme {
     if (scheme === "dark") {

@@ -1,0 +1,52 @@
+.logo {
+    width: 2em;
+    padding: 0.5em;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-content: center end;
+}
+
+footer>p {
+    grid-column: span 3;
+}
+
+@media (min-width: 600px) {
+    footer {
+        grid-template-columns: 10ch repeat(3, 3em);
+    }
+
+    footer>p {
+        grid-column: span 1;
+    }
+}
+
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
