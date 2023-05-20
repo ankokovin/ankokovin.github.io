@@ -10,14 +10,36 @@ import { useRef } from 'react'
 
 export type Project = typeof projects[number]
 
+
+function Tag(props: { tag: string, index: number }) {
+    const inner = TagInner(props.tag);
+    if (!inner) {
+        return null;
+    }
+    return <span>{inner}</span>
+}
+
+function TagInner(tag: string) {
+    if (tag === 'colab') {
+        return <img className='tag-logo' src={colab} alt="Google Colab logo" title='Google Colab' />;
+    }
+    if (tag === 'flash-warning' && isDarkMode()) {
+        return <img className='tag-logo' src={warning} alt="Warning sign" title='Осторожно, без тёмной темы' />;
+    }
+    if (tag === 'no-mobile') {
+        return <span className='tag-strikethrough' title='Не расчитан на мобильный'>📱</span>;
+    }
+    return null;
+}
+
 function Project(project: Project, close: (project?: false | Project) => void) {
     return (<button
+        className='project-button'
         key={project.id}
         onClick={() => {
             close(project)
         }}>{project['ru-name']}
-        {project.tags.includes('colab') && <img className='tag-logo' src={colab} alt="Google Colab logo" title='Google Colab' />}
-        {isDarkMode() && project.tags.includes('flash-warning') && <img className='tag-logo' src={warning} alt="Warning sign" title='Осторожно, без тёмной темы' />}
+        {project.tags.map((tag, index) => <Tag tag={tag} index={index} />)}
     </button>)
 }
 

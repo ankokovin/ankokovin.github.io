@@ -4,58 +4,90 @@
             "id": "MusicDataSet",
             "ru-name": "Обработка музыкального датасета",
             "link": "https://colab.research.google.com/drive/1JyOQYY--uKD10rY8pByVhI7BQWmpdJqQ",
-            "tags": ["study", "colab"]
+            "tags": [
+                "study",
+                "colab"
+            ]
         },
         {
-
             "id": "ExpertSystem",
             "ru-name": "Экспертная система",
             "link": "https://colab.research.google.com/drive/1QKQbU9ebdBT6Icv381UYobYJwaoz7TOk",
-            "tags": ["study", "colab"]
+            "tags": [
+                "study",
+                "colab"
+            ]
         },
         {
             "id": "CETINCalculator",
             "ru-name": "Калькулятор стоимости разработки программного проекта по методике CETIN",
             "link": "https://colab.research.google.com/drive/1qMfeiblphK4JUqsiPR_88f4hF9lD10hn#scrollTo=rYz6OfekzgG2",
-            "tags": ["study", "colab"]
+            "tags": [
+                "study",
+                "colab"
+            ]
         },
         {
             "id": "ParanoidAndroid",
             "ru-name": "Прогнозирование количества скачиваний приложения в Google Play",
             "link": "https://colab.research.google.com/drive/1nMKGl4H_ZMHCux8mOZJM79pOoShcNGv3",
-            "tags": ["study", "colab"]
+            "tags": [
+                "study",
+                "colab"
+            ]
         },
         {
             "id": "CompGraphics",
             "ru-name": "Компьютерная графика",
-            "tags": ["study", "flash-warning"]
+            "tags": [
+                "study",
+                "flash-warning",
+                "no-mobile"
+            ]
         },
         {
             "id": "BlocklyForHouse",
             "ru-name": "Командный проект",
-            "tags": ["study", "flash-warning"]
+            "tags": [
+                "study",
+                "flash-warning",
+                "no-mobile"
+            ]
         },
         {
             "id": "FifteenGame",
             "ru-name": "Пятнашка 3х3",
-            "tags": ["study", "flash-warning"]
+            "tags": [
+                "study",
+                "flash-warning"
+            ]
         },
         {
             "id": "Tree",
             "ru-name": "Интуитивные деревья",
             "link": "https://colab.research.google.com/drive/1mrUcb4Z6tVYBsT7r6qax4uVmsMIHiADr",
-            "tags": ["study", "colab"]
+            "tags": [
+                "study",
+                "colab"
+            ]
         },
         {
             "id": "Distances",
             "ru-name": "Метрики расстояния",
             "link": "https://colab.research.google.com/drive/15wreC4ccf4anDHQgbVal7GsFg0hdzImK",
-            "tags": ["study", "colab"]
+            "tags": [
+                "study",
+                "colab"
+            ]
         },
         {
             "id": "smartFactory-miltiagentagentSim",
             "ru-name": "Умная фабрика",
-            "tags": ["study", "flash-warning"]
+            "tags": [
+                "study",
+                "flash-warning",
+                "no-mobile"
+            ]
         }
     ]
 }
