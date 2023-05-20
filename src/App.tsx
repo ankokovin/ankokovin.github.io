@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Header, { Project } from './Header'
 import { useCallback, useState } from 'react'
+import { Scheme, getPreferredColorScheme } from './DarkModeUtils';
+import DarkModeContext from './DarkModeContext'
 
 function DisplayProject(project: Project) {
   return <div className='display-project'>
@@ -16,7 +18,7 @@ function GithubIssueBadge({ id }: { id: number }) {
 }
 
 
-function App() {
+export default function App() {
 
   const [currentProject, setCurrentProject] = useState<null | Project>(null);
 
@@ -38,8 +40,17 @@ function App() {
     setCurrentProject(project)
   }, []);
 
+  const [currentScheme, setCurrentScheme] = useState<Scheme>(getPreferredColorScheme())
+
+
+  const darkModeContextValue = {
+    isDarkMode: currentScheme === 'dark',
+    currentScheme,
+    setCurrentScheme
+  }
+
   return (
-    <>
+    <DarkModeContext.Provider value={darkModeContextValue} >
       <Header onProjectChange={onProjectChange} />
       <main>
         {currentProject != null ? DisplayProject(currentProject) :
@@ -83,8 +94,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </footer>
-    </>
+    </DarkModeContext.Provider>
   )
 }
 
-export default App

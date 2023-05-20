@@ -1,21 +1,27 @@
 import { DarkModeToggle } from './DarkModeToggle'
-import { isDarkMode } from './DarkModeUtils'
 import './Header.css'
+import githubLogo from './assets/github-mark.svg';
+import githubLogoWhite from './assets/github-mark-white.svg';
+
 
 import colab from './assets/Google_Colaboratory_SVG_Logo.svg'
 import warning from './assets/warning-circle-svgrepo-com.svg'
 
 import { projects } from './projects.json'
-import { useRef } from 'react'
+import { useContext, useRef } from 'react'
+import DarkModeContext from './DarkModeContext';
 
 export type Project = typeof projects[number]
 
 
-function Tag(props: { tag: string }) {
+function Tag(props: { tag: string}) {
+
+    const darkModeContext = useContext(DarkModeContext);
+
     if (props.tag === 'colab') {
         return <img className='tag-logo' src={colab} alt="Google Colab logo" title='Google Colab' />;
     }
-    if (props.tag === 'flash-warning' && isDarkMode()) {
+    if (props.tag === 'flash-warning' && darkModeContext.isDarkMode) {
         return <img className='tag-logo' src={warning} alt="Warning sign" title='Осторожно, без тёмной темы' />;
     }
     if (props.tag === 'no-mobile') {
@@ -72,6 +78,8 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
         Project(project, close)
     );
 
+    const darkModeContext = useContext(DarkModeContext);
+
     return (
         <header>
             <a href="/">🏠</a>
@@ -95,7 +103,9 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
                     </div>
                 </dialog>
             </div>
-            <a href="/legacy" target="_blank">Легаси версия</a>
+            <a href="https://github.com/ankokovin/ankokovin.github.io" target='_blank' >
+                <img src={darkModeContext.isDarkMode ? githubLogoWhite : githubLogo} className="header-logo" alt="GitHub Invercat logo"/>
+            </a>
         </header>)
 }
 

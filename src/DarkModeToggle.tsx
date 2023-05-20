@@ -1,22 +1,24 @@
-import { useEffect, useState } from "react";
-import { applyPreferredColorScheme, getPreferredColorScheme, invert, savePreferredColorScheme } from "./DarkModeUtils";
+import { useContext, useEffect } from "react";
+import { applyPreferredColorScheme, invert, savePreferredColorScheme } from "./DarkModeUtils";
+import DarkModeContext from "./DarkModeContext";
 
 
 export function DarkModeToggle() {
-    function toggleColorScheme() {
-        const newScheme = invert(mode)
 
-        setMode(newScheme);
+    const darkModeContext = useContext(DarkModeContext);
+
+    function toggleColorScheme() {
+        const newScheme = invert(darkModeContext.currentScheme)
+
+        darkModeContext.setCurrentScheme?.(newScheme);
         savePreferredColorScheme(newScheme);
     }
 
-    const [mode, setMode] = useState(getPreferredColorScheme());
-
     useEffect(() => {
-        applyPreferredColorScheme(mode)
-    }, [mode])
+        applyPreferredColorScheme(darkModeContext.currentScheme);
+    }, [darkModeContext.currentScheme])
 
     return <div>
-        <button onClick={toggleColorScheme}>{mode === 'dark' ? '🌞' : '🌚'}</button>
-        </div>
+        <button onClick={toggleColorScheme}>{darkModeContext.isDarkMode ? '🌞' : '🌚'}</button>
+    </div>
 }

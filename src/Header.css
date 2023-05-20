@@ -1,7 +1,15 @@
 header {
     display: grid;
-    gap: 5px;
-    grid-template-columns: repeat(2, 2rem) repeat(2, 5rem);
+    gap: 10px;
+    grid-template-columns: repeat(2, 2rem) 5rem 2rem;
+}
+
+.header-logo {
+    width: 2rem;
+}
+
+.header-logo:hover {
+    filter: drop-shadow(0 0 1em #ffffff);
 }
 
 dialog {
