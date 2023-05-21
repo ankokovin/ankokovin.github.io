@@ -31,6 +31,12 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 		}
 	};
 
+	const handleKeyDown = (e: KeyboardEvent) => {
+		if (e.key === "Escape") {
+			close();
+		}
+	};
+
 	const open = () => {
 		if (!projectDialogRef?.current) {
 			return;
@@ -41,6 +47,8 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 			return;
 		}
 
+		document.body.addEventListener("keydown", handleKeyDown);
+
 		if (isSmallScreen()) {
 			projectDialogRef.current.showModal();
 			projectDialogRef.current.addEventListener("click", handleClick);
@@ -48,13 +56,14 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 		} 
 
 		projectDialogRef.current.show();
-		document.addEventListener("click", handleClick);		
+		document.addEventListener("click", handleClick);
 	};
 
 	const close = (project?: false | Project) => {
 		if (!projectDialogRef?.current) {
 			return;
 		}
+		document.body.removeEventListener("keydown", handleKeyDown);
 		projectDialogRef.current.removeEventListener("click", handleClick);
 		document.removeEventListener("click", handleClick);	
 		projectDialogRef.current.close();
@@ -109,12 +118,12 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 					<div className='dialog-wrapper' ref={projectDialogContentWrapperRef}>
 						<button className="dialog-close-button" onClick={() => close(false)}>
 							<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-								<circle cx="50%" cy="50%" r="45%"  fill="none" stroke="currentColor" strokeWidth="2" />
+								<circle cx="50%" cy="50%" r="45%"  fill="none" stroke="currentColor" strokeWidth="2"/>
 								<line 	x1="22%" x2="78%" y1="22%" y2="78%"		 stroke="currentColor" strokeWidth="2"/>
 								<line 	x1="22%" x2="78%" y1="78%" y2="22%"		 stroke="currentColor" strokeWidth="2"/>
-							</svg></button>
+							</svg>
+						</button>
 						<h2>Проекты</h2>
-						<button onClick={() => close(false)}>Главная</button>
 						<h3>Интересные</h3>
 						<section className='project-container'>
 							{renderProjectsByTag("interesting")}
