@@ -40,11 +40,16 @@ dialog {
         grid-column:1 / -1;
         position: relative;
     }
+    
+    .dialog-close-button {
+        display: none;
+    }
 }
 
 
 .dialog-wrapper {
-    padding: 16px;
+    --padding: 16px;
+    padding: var(--padding);
 }
 
 .project-container {

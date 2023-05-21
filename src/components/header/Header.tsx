@@ -42,8 +42,8 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 		}
 
 		if (isSmallScreen()) {
-		projectDialogRef.current.showModal();
-		projectDialogRef.current.addEventListener("click", handleClick);
+			projectDialogRef.current.showModal();
+			projectDialogRef.current.addEventListener("click", handleClick);
 			return;
 		} 
 
@@ -77,36 +77,42 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 
 	return (
 		<>
-		<header>
-			<a href="/">🏠</a>
-			<DarkModeToggle />
-			<div>
+			<header>
+				<a href="/">🏠</a>
+				<DarkModeToggle />
+				<div>
 					<button onClick={open} ref={projectsButtonDialogRef}>Выбрать проект</button>
-			</div>
+				</div>
 
-			<Logo
-				href="https://github.com/ankokovin/ankokovin.github.io"
-				title="Код этой страницы"
-				darkModeImg={githubLogoWhite}
-				lightModeImg={githubLogo}
-				alt="GitHub Invercat logo"
-			/>
-			<Logo
-				href="mailto:rycarok@gmail.com"
-				title="rycarok@gmail.com"
-				darkModeImg={emailLogoWhite}
-				lightModeImg={emailLogo}
-				alt="Email icon"
-			/>
-			<Logo
-				href="https://t.me/ankokovin"
-				title="Мой Telegram"
-				darkModeImg={telegramLogoWhite}
-				lightModeImg={telegramLogo}
-				alt="Telegram logo"
-			/>
+				<Logo
+					href="https://github.com/ankokovin/ankokovin.github.io"
+					title="Код этой страницы"
+					darkModeImg={githubLogoWhite}
+					lightModeImg={githubLogo}
+					alt="GitHub Invercat logo"
+				/>
+				<Logo
+					href="mailto:rycarok@gmail.com"
+					title="rycarok@gmail.com"
+					darkModeImg={emailLogoWhite}
+					lightModeImg={emailLogo}
+					alt="Email icon"
+				/>
+				<Logo
+					href="https://t.me/ankokovin"
+					title="Мой Telegram"
+					darkModeImg={telegramLogoWhite}
+					lightModeImg={telegramLogo}
+					alt="Telegram logo"
+				/>
 				<dialog ref={projectDialogRef}>
 					<div className='dialog-wrapper' ref={projectDialogContentWrapperRef}>
+						<button className="dialog-close-button" onClick={() => close(false)}>
+							<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+								<circle cx="50%" cy="50%" r="45%"  fill="none" stroke="currentColor" strokeWidth="2" />
+								<line 	x1="22%" x2="78%" y1="22%" y2="78%"		 stroke="currentColor" strokeWidth="2"/>
+								<line 	x1="22%" x2="78%" y1="78%" y2="22%"		 stroke="currentColor" strokeWidth="2"/>
+							</svg></button>
 						<h2>Проекты</h2>
 						<button onClick={() => close(false)}>Главная</button>
 						<h3>Интересные</h3>
