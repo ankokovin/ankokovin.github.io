@@ -1,4 +1,4 @@
-import { projects } from 'Data/projects.json'
+import { projects } from "Data/projects.json";
 
 export type Project = typeof projects[number];
 
