@@ -4,10 +4,11 @@
   font-weight: 400;
 
   --main-color: rgba(255, 255, 255, 0.87);
+  --background-color: #242424; 
 
   color-scheme: light dark;
   color: var(--main-color);
-  background-color: #242424;
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -43,7 +44,7 @@ h1 {
 @media (prefers-color-scheme: light) {
   :root {
     --main-color: #213547;
-    background-color: #ffffff;
+    --background-color: #ffffff;
   }
 
   a:hover {

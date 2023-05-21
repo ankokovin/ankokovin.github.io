@@ -69,3 +69,8 @@ dialog {
     border-top: 3px solid red;
     transform: rotate(-45deg);
 }
+
+dialog {
+    background-color: var(--background-color);
+    color: var(--main-color);
+} 
