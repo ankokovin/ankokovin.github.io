@@ -19,7 +19,6 @@ export default function DarkModeToggle() {
 		applyPreferredColorScheme(darkModeContext.currentScheme);
 	}, [darkModeContext.currentScheme]);
 
-	return <div>
-		<button onClick={toggleColorScheme}>{darkModeContext.isDarkMode ? "🌞" : "🌚"}</button>
-	</div>;
+	return <button onClick={toggleColorScheme}>{darkModeContext.isDarkMode ? "🌞" : "🌚"}</button>;
+
 }

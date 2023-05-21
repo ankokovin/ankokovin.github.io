@@ -1,23 +1,35 @@
 import "./App.css";
 
+import Footer from "Components//footer";
+import Header from "Components//header";
+import Main from "Components//main";
+import DisplayProject from "Components/project";
+import { projects } from "Data/projects.json";
 import { useCallback, useState } from "react";
+import {
+	createBrowserRouter,
+	RouterProvider} from "react-router-dom";
 
-import Footer from "./components/footer";
-import Header from "./components/header";
-import Main from "./components/main";
 import DarkModeContext from "./context/DarkModeContext";
 import { Project, Scheme } from "./types";
 import { getPreferredColorScheme, isSmallScreen } from "./utils";
 
-
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <Main />,
+	},
+	{
+		path: "/project/:projectId",
+		element: <DisplayProject />,
+		loader: async ({params}) => projects.find(project => project.id === params.projectId),
+	}
+]);
 
 export default function App() {
 
-	const [currentProject, setCurrentProject] = useState<null | Project>(null);
-
 	const onProjectChange = useCallback((project: null | Project) => {
 		if (!project) {
-			setCurrentProject(project);
 			return;
 		}
 
@@ -30,7 +42,7 @@ export default function App() {
 			return;
 		}
 
-		setCurrentProject(project);
+		router.navigate(`/project/${project.id}`);
 	}, []);
 
 	const [currentScheme, setCurrentScheme] = useState<Scheme>(getPreferredColorScheme());
@@ -44,8 +56,8 @@ export default function App() {
 
 	return (
 		<DarkModeContext.Provider value={darkModeContextValue} >
-			<Header onProjectChange={onProjectChange} />
-			<Main currentProject={currentProject}/>
+			<Header onProjectChange={onProjectChange} home={() => router.navigate("/")}/>
+			<RouterProvider router={router}/>
 			<Footer />
 		</DarkModeContext.Provider>
 	);

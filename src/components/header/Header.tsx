@@ -13,13 +13,13 @@ import Logo from "./Logo";
 import ProjectsDialog from "./ProjectsDialog";
 
 
-function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
+function Header(props: { onProjectChange: (arg0: null | Project) => void; home: () => void}) {
 	const {projectDialogButton, projectDialog} = ProjectsDialog(props.onProjectChange);
 
 	return (
 		<>
 			<header>
-				<a href="/">🏠</a>
+				<button onClick={props.home}>🏠</button>
 				<DarkModeToggle />
 				{projectDialogButton}
 				<Logo

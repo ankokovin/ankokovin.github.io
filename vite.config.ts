@@ -9,6 +9,7 @@ export default defineConfig({
 		alias: {
 			"Assets": path.resolve(__dirname, "./src/assets"),
 			"Context": path.resolve(__dirname, "./src/context"),
+			"Components": path.resolve(__dirname, "./src/components"),
 			"Data": path.resolve(__dirname, "./src/data"),
 			"Types": path.resolve(__dirname, "./src/types.d.ts"),
 			"Utils": path.resolve(__dirname, "./src/utils.ts"),
