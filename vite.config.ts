@@ -22,6 +22,10 @@ export default defineConfig({
 				{
 					src: path.resolve(__dirname, "./legacy") + "/[!.]*",
 					dest: "./legacy"
+				},
+				{
+					src: path.resolve(__dirname, "./src/data/posts/imgs/[!.]*"),
+					dest: "./imgs"
 				}
 			]
 		}),

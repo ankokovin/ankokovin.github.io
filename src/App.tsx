@@ -3,6 +3,7 @@ import "./App.css";
 import Footer from "Components//footer";
 import Header from "Components//header";
 import Main from "Components//main";
+import BlogMain from "Components/blog";
 import DisplayProject from "Components/project";
 import { projects } from "Data/projects.json";
 import { useCallback, useState } from "react";
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
 		path: "/project/:projectId",
 		element: <DisplayProject />,
 		loader: async ({params}) => projects.find(project => project.id === params.projectId),
+	},
+	{
+		path: "/blog",
+		element: <BlogMain />
 	}
 ]);
 
@@ -39,6 +44,11 @@ export default function App() {
 
 		if (shouldOpenInNewTab) {
 			window.open(project.link ?? `https://ankokovin.github.io/${project.id}`);
+			return;
+		}
+
+		if (project.tags.includes("local")) {
+			router.navigate(`/${project.id}`);
 			return;
 		}
 

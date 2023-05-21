@@ -1,6 +1,14 @@
 {
     "projects": [
         {
+            "id": "blog",
+            "ru-name": "Блог",
+            "tags": [
+                "interesting",
+                "local"
+            ]
+        },
+        {
             "id": "MusicDataSet",
             "ru-name": "Обработка музыкального датасета",
             "link": "https://colab.research.google.com/drive/1JyOQYY--uKD10rY8pByVhI7BQWmpdJqQ",

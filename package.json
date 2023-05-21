@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lintfix": "eslint src --ext ts,tsx --fix",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "bp": "npm run build && xdg-open http://localhost:4173 && npm run preview "
   },
   "dependencies": {
     "react": "^18.2.0",
