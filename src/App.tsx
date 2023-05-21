@@ -6,11 +6,10 @@ import Footer from "./components/footer";
 import Header from "./components/header";
 import Main from "./components/main";
 import DarkModeContext from "./context/DarkModeContext";
-import { getPreferredColorScheme } from "./DarkModeUtils";
 import { Project, Scheme } from "./types";
+import { getPreferredColorScheme, isSmallScreen } from "./utils";
 
 
-const MIN_WIDTH_AS_MOBILE = 600;
 
 export default function App() {
 
@@ -23,7 +22,7 @@ export default function App() {
 		}
 
 		const shouldOpenInNewTab = project.tags.includes("colab")
-      || (window.screen.width < MIN_WIDTH_AS_MOBILE && project.tags.includes("no-mobile"));
+      || (isSmallScreen() && project.tags.includes("no-mobile"));
 
 
 		if (shouldOpenInNewTab) {

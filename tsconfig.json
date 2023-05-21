@@ -23,7 +23,8 @@
       "Context/*": ["./src/context/*"],
       "Components/*": ["./src/components/*"],
       "Data/*": ["./src/data/*"],
-      "Types": ["./src/types.d.ts"]
+      "Types": ["./src/types.d.ts"],
+      "Utils": ["./src/utils.ts"]
     }
   },
   "include": ["src"],

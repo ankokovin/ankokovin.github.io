@@ -1,7 +1,7 @@
 import DarkModeContext from "Context/DarkModeContext";
 import { useContext, useEffect } from "react";
 
-import { applyPreferredColorScheme, invert, savePreferredColorScheme } from "../../DarkModeUtils";
+import { applyPreferredColorScheme, invertScheme, savePreferredColorScheme } from "../../utils";
 
 
 export default function DarkModeToggle() {
@@ -9,7 +9,7 @@ export default function DarkModeToggle() {
 	const darkModeContext = useContext(DarkModeContext);
 
 	function toggleColorScheme() {
-		const newScheme = invert(darkModeContext.currentScheme);
+		const newScheme = invertScheme(darkModeContext.currentScheme);
 
 		darkModeContext.setCurrentScheme?.(newScheme);
 		savePreferredColorScheme(newScheme);

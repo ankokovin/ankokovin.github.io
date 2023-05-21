@@ -8,6 +8,7 @@ import telegramLogo from "Assets/telegram-fill-svgrepo-com.svg";
 import telegramLogoWhite from "Assets/telegram-fill-svgrepo-com-white.svg";
 import { projects } from "Data/projects.json";
 import { useRef } from "react";
+import { isSmallScreen } from "Utils";
 
 import { Project } from "../../types";
 import DarkModeToggle from "./DarkModeToggle";
@@ -16,10 +17,15 @@ import ProjectItem from "./ProjectItem";
 
 
 function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
-	const projectDialogRef = useRef<null | HTMLDialogElement>(null);
-	const projectDialogContentWrapperRef = useRef<null | HTMLDivElement>(null);
+	const projectDialogRef = useRef<HTMLDialogElement>(null);
+	const projectDialogContentWrapperRef = useRef<HTMLDivElement>(null);
+	const projectsButtonDialogRef = useRef<HTMLButtonElement>(null);
 
 	const handleClick = (e: MouseEvent) => {
+		if (e.target == projectsButtonDialogRef?.current) {
+			return;
+		}
+		
 		if (!projectDialogContentWrapperRef?.current?.contains(e.target as Node | null)) {
 			close();
 		}
@@ -29,8 +35,20 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 		if (!projectDialogRef?.current) {
 			return;
 		}
+
+		if (projectDialogRef.current.open) {
+			projectDialogRef.current.close();
+			return;
+		}
+
+		if (isSmallScreen()) {
 		projectDialogRef.current.showModal();
 		projectDialogRef.current.addEventListener("click", handleClick);
+			return;
+		} 
+
+		projectDialogRef.current.show();
+		document.addEventListener("click", handleClick);		
 	};
 
 	const close = (project?: false | Project) => {
@@ -38,6 +56,7 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 			return;
 		}
 		projectDialogRef.current.removeEventListener("click", handleClick);
+		document.removeEventListener("click", handleClick);	
 		projectDialogRef.current.close();
 		if (project === false) {
 			props.onProjectChange(null);
@@ -57,25 +76,12 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 	};
 
 	return (
+		<>
 		<header>
 			<a href="/">🏠</a>
 			<DarkModeToggle />
 			<div>
-				<button onClick={open}>Выбрать проект</button>
-				<dialog ref={projectDialogRef}>
-					<div className='dialog-wrapper' ref={projectDialogContentWrapperRef}>
-						<h2>Проекты</h2>
-						<button onClick={() => close(false)}>Главная</button>
-						<h3>Интересные</h3>
-						<section className='project-container'>
-							{renderProjectsByTag("interesting")}
-						</section>
-						<h3>Учебные</h3>
-						<section className='project-container'>
-							{renderProjectsByTag("study")}
-						</section>
-					</div>
-				</dialog>
+					<button onClick={open} ref={projectsButtonDialogRef}>Выбрать проект</button>
 			</div>
 
 			<Logo
@@ -99,7 +105,24 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; }) {
 				lightModeImg={telegramLogo}
 				alt="Telegram logo"
 			/>
-		</header>);
+				<dialog ref={projectDialogRef}>
+					<div className='dialog-wrapper' ref={projectDialogContentWrapperRef}>
+						<h2>Проекты</h2>
+						<button onClick={() => close(false)}>Главная</button>
+						<h3>Интересные</h3>
+						<section className='project-container'>
+							{renderProjectsByTag("interesting")}
+						</section>
+						<h3>Учебные</h3>
+						<section className='project-container'>
+							{renderProjectsByTag("study")}
+						</section>
+					</div>
+				</dialog>
+			</header>
+
+		</>
+	);
 }
 
 export default Header; 

@@ -5,7 +5,7 @@ export function isDarkMode(): boolean {
 }
 
 
-export function invert(scheme: Scheme): Scheme {
+export function invertScheme(scheme: Scheme): Scheme {
 	if (scheme === "dark") {
 		return "light";
 	}
@@ -81,4 +81,10 @@ export function applyPreferredColorScheme(scheme: Scheme) {
 			}
 		}
 	}
+}
+
+const MIN_WIDTH_AS_SMALL = 600;
+
+export function isSmallScreen() {
+	return window.screen.width < MIN_WIDTH_AS_SMALL;
 }
