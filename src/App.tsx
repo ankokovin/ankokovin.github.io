@@ -8,14 +8,14 @@ import DisplayProject from "Components/project";
 import { projects } from "Data/projects.json";
 import { useCallback, useState } from "react";
 import {
-	createBrowserRouter,
+	createHashRouter,
 	RouterProvider} from "react-router-dom";
 
 import DarkModeContext from "./context/DarkModeContext";
 import { Project, Scheme } from "./types";
 import { getPreferredColorScheme, isSmallScreen } from "./utils";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
 	{
 		path: "/",
 		element: <Main />,
