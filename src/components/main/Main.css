@@ -29,3 +29,8 @@ details[open] summary {
     border-bottom: 1px solid #aaa;
     margin-bottom: 0.5em;
 }
+
+.my-logo>svg  {
+    aspect-ratio: 1 / 1;
+    width: 10rem;
+}

@@ -1,0 +1,29 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    #background {
+      fill: rgba(255, 255, 255, 0.23);
+    }
+
+    #text {
+      fill: rgba(255, 255, 255, 0.87);
+      font-family:Dyuthi;
+      font-size:4em;
+      font-weight: 100;
+    }
+
+    @media (prefers-color-scheme: light) {
+       #background {
+        fill: #ffffff;
+        stroke: #213547;
+       }
+
+       #text {
+        fill: #213547
+       }
+    }
+  </style>
+ <g id="icon">
+  <circle id="background" cx="50" cy="50" r="47"/>
+  <text id="text" x="7.5" y="67.5">AN</text>
+ </g>
+</svg>

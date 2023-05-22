@@ -2,8 +2,7 @@ import "./Footer.css";
 
 import reactLogo from "Assets/react.svg";
 import typescriptLogo from "Assets/ts-logo-128.svg";
-
-import viteLogo from "/vite.svg";
+import viteLogo from "Assets/vite.svg";
 
 export default function Footer() {
 	return <footer>

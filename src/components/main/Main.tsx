@@ -1,10 +1,16 @@
 import "./Main.css";
 
+import myLogoRaw from "/icon.svg?raw";
+
 import GitHubIssueBadge from "./GitHubIssueBadge";
 
 export default function Main() {
 	return <main>
 		<h1>Коковин Алексей</h1>
+		{
+			//Very hack, much wow!
+		}
+		<div className="my-logo" dangerouslySetInnerHTML={{__html: myLogoRaw}}></div>
 		<section>
 			<details>
 				<summary>Список TODO прямо по серерине, чтобы я не забыл</summary>
