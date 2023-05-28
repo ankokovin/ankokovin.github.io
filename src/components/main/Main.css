@@ -1,7 +1,11 @@
 .todos {
+    list-style: none;
+    margin-left: 0;
+}
+
+.todos li {
     display: grid;
     grid-template-columns: 86px minmax(calc(100% - 86px), 20rem);
-    justify-content: center;
 }
 
 .todos img {

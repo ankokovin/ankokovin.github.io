@@ -85,14 +85,16 @@ export default function ProjectsDialog(onProjectChange: (arg0: null | Project) =
 					<line 	x1="22%" x2="78%" y1="78%" y2="22%"		 stroke="currentColor" strokeWidth="2"/>
 				</svg>
 			</button>
-			<h2>Проекты</h2>
-			<h3>Интересные</h3>
-			<section className='project-container'>
-				{renderProjectsByTag("interesting")}
-			</section>
-			<h3>Учебные</h3>
-			<section className='project-container'>
-				{renderProjectsByTag("study")}
+			<h2 id="projects-heading">Проекты</h2>
+			<section aria-labelledby="projects-heading">
+				<h3 id="projects-interesting-heading">Интересные</h3>
+				<section aria-labelledby="projects-interesting-heading" className='project-container'>
+					{renderProjectsByTag("interesting")}
+				</section>
+				<h3 id="projects-study-heading">Учебные</h3>
+				<section aria-labelledby="projects-study-heading" className='project-container'>
+					{renderProjectsByTag("study")}
+				</section>
 			</section>
 		</div>
 	</dialog>;
