@@ -1,3 +1,5 @@
+import "./Blog.css";
+
 import blog from "Data/posts/LighthouseBestPracticeServesImageWithLowResolution.html?raw";
 
 export default function BlogMain() {

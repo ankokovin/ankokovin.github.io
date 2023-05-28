@@ -1,0 +1,11 @@
+.blog {
+	overflow-wrap: break-word;
+}
+
+.blog .long-string {
+	overflow-wrap: anywhere;
+}
+
+.blog img {
+	max-width: 100%;
+}

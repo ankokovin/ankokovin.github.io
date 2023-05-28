@@ -7,7 +7,7 @@
         потребовалось создать Issue для каждого ещё не выполненного пункта, а статус Issue решил отображать при помощи
         бейджа от <a href="https://shields.io/category/issue-tracking">shields.io</a>. Интересующий меня бэйдж доступен
         по следующему URL:</p>
-    <pre>https://img.shields.io/github/issues/detail/state/{user-name}/{repo-name}/{issue-number}</pre>
+    <p>https://img.shields.io/github/issues/detail/state/{user-name}/{repo-name}/{issue-number}</p>
     Однако после их добавления, я с ужасом обнаружил, что мой score в Best Practices в Lighthouse упал.
     <img src="imgs/Screenshot%20from%202023-05-16%2021-39-33.png"
         alt="Скриншот Lighthouse со значением Best Practices равным 92. Сообщение об ошибке говорит: 'Serves images with low resolution'">
@@ -22,35 +22,35 @@
         <a href="https://github.com/GoogleChrome/lighthouse/issues/11936#issuecomment-808444051">Кому-то</a> просто
         помогло добавить эти атрибуты. Я тоже попробывал заменить
     </p>
-    <pre>
+    <p class="long-string">
     &lt;img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/{user-name}/{repo-name}/{issue-number}"/>
-    </pre>
+    </p>
     на
-    <pre>
+    <p class="long-string">
     &lt;img alt="GitHub issue/pull request detail" 
         src="https://img.shields.io/github/issues/detail/state/{user-name}/{repo-name}/{issue-number}" 
         sizes="86px"/>
-    </pre>
+    </p>
     и на
-    <pre>
+    <p class="long-string">
     &lt;img alt="GitHub issue/pull request detail" 
         src="https://img.shields.io/github/issues/detail/state/{user-name}/{repo-name}/{issue-number}" 
         srcset="https://img.shields.io/github/issues/detail/state/{user-name}/{repo-name}/{issue-number} 86w"/>
-    </pre>
+    </p>
     и даже самый странный варинт
-    <pre>
+    <p class="long-string">
     &lt;img alt="GitHub issue/pull request detail" 
         src="https://img.shields.io/github/issues/detail/state/{user-name}/{repo-name}/{issue-number}" 
         srcset="https://img.shields.io/github/issues/detail/state/{user-name}/{repo-name}/{issue-number} 86w, 
         https://img.shields.io/github/issues/detail/state/{user-name}/{repo-name}/{issue-number} 172w"/>
-    </pre>
+    </p>
     но Lighthouse был неприклонен.
 </section>
 <section aria-labelledby="real-solution-heading">
     <h2 id="real-solution-heading"> Реальное решение </h2>
     <p>На этот момент я задумался: "Странно, вроде бы это не первая картинка на сайте. Почему это сообщение появилось
         толькосейчас? Да и откуда мне взять ещё одно изображение с 2х разрешением, если сервис даёт только одно?
-        Неужелипридётсярасстаться с красивой оценкой 100 в Best Practices?"</p>
+        Неужели придётсярасстаться с красивой оценкой 100 в Best Practices?"</p>
     <p>Только через несколько минут всё встало на свои места. Все изображения на сайте на тот момент являлись
         *svg*изображениями. Одной примечательной особенностью векторной графики является то, что изображения могут
         приниматьлюбыеразмеры без потери качества. Конечно Lighthouse не может на них жаловаться!
@@ -66,9 +66,9 @@
     </ul>
     </p>
     К счастью я обнаружил, что
-    <pre>
+    <p class="long-string">
 &lt;img alt="GitHub issue/pull request detail" src="https://img.shields.io/github/issues/detail/state/{user-name}/{repo-name}/{issue-number}.svg"/>
-</pre>
+</p>
     также работает. И этого стало достаточно чтобы вернуть оценку 100 по Best Practice.
 </section>
 <section aria-labelledby="conclusion-heading">
