@@ -13,24 +13,24 @@
     filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-
-footer {
+.powered-by {
+    --logos-count: 4;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(1fr, var(--logos-count));
     place-content: end center;
     margin-bottom: 5px;
 }
 
-footer>p {
-    grid-column: span 3;
+.powered-by>p {
+    grid-column: span 4;
 }
 
 @media (min-width: 600px) {
-    footer {
-        grid-template-columns: 10ch repeat(3, 3em);
+    .powered-by {
+        grid-template-columns: 10ch repeat(var(--logos-count), 3em);
     }
 
-    footer>p {
+    .powered-by>p {
         grid-column: span 1;
     }
 }
@@ -47,7 +47,7 @@ footer>p {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
+    .logo.react {
         animation: logo-spin infinite 20s linear;
     }
 }
