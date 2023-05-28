@@ -19,18 +19,8 @@ footer {
   grid-template-columns: fit-content;
   grid-template-rows: 50px 1fr 100px;
   /*align-items: center;*/
-  height: 95vh;
+  height: 100vh;
   --body-margin: 8px;
   margin: var(--body-margin);
   text-align: center;
-}
-
-@media (min-width: 600px) {
-  #root {
-    grid-template-areas:
-      "header footer"
-      "main main";
-    grid-template-rows: 50px 1fr;
-    --body-margin: 20px;
-  }
 }

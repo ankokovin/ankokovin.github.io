@@ -17,7 +17,8 @@
 footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    place-content: center end;
+    place-content: end center;
+    margin-bottom: 5px;
 }
 
 footer>p {
