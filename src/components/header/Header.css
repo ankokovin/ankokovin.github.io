@@ -1,7 +1,8 @@
 header {
     display: grid;
     gap: 10px;
-    /* There should be a better way to do this*/
+
+    /* There should be a better way to do this */
     grid-template-columns: repeat(2, 2rem) 5rem repeat(3, 2rem);
     align-items: start;
 }
@@ -12,11 +13,13 @@ header {
 }
 
 .header-logo:hover {
-    filter: drop-shadow(0 0 1em #ffffff);
+    filter: drop-shadow(0 0 1em #fff);
 }
 
 dialog {
     padding: 0;
+    background-color: var(--background-color);
+    color: var(--main-color);
 }
 
 .dialog-close-button {
@@ -34,7 +37,7 @@ dialog {
     height: 30px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 600px) {
     dialog[open] {
         grid-row-start: 2;
         grid-column:1 / -1;
@@ -49,6 +52,7 @@ dialog {
 
 .dialog-wrapper {
     --padding: 16px;
+
     padding: var(--padding);
 }
 
@@ -74,8 +78,3 @@ dialog {
     border-top: 3px solid red;
     transform: rotate(-45deg);
 }
-
-dialog {
-    background-color: var(--background-color);
-    color: var(--main-color);
-} 

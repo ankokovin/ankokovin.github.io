@@ -16,11 +16,11 @@ footer {
     "header"
     "main"
     "footer";
-  grid-template-columns: fit-content;
   grid-template-rows: 50px 1fr 100px;
-  /*align-items: center;*/
   height: 100vh;
+
   --body-margin: 8px;
+
   margin: var(--body-margin);
   text-align: center;
 }

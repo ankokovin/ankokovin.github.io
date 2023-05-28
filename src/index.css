@@ -3,18 +3,17 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --main-color: rgba(255, 255, 255, 0.87);
-  --background-color: #242424; 
+  --main-color: rgb(255 255 255 / 87%);
+  --background-color: #242424;
 
   color-scheme: light dark;
   color: var(--main-color);
   background-color: var(--background-color);
-
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -44,7 +43,7 @@ h1 {
 @media (prefers-color-scheme: light) {
   :root {
     --main-color: #213547;
-    --background-color: #ffffff;
+    --background-color: #fff;
   }
 
   a:hover {
