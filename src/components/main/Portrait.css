@@ -1,0 +1,24 @@
+.portrait {
+    position: relative;
+
+    --my-logo-radius: min(4rem, calc(95vw / (28 / 4)));
+}
+
+.portrait-logo>svg  {
+    aspect-ratio: 1 / 1;
+    width: calc(2 * var(--my-logo-radius));
+    border: 3px solid var(--main-color);
+    border-radius: 50%;
+}
+
+.portrait-logo {
+    position: absolute;
+    left: calc(50% - var(--my-logo-radius));
+    top: 1rem;
+}
+
+.portrait-image {
+    aspect-ratio: 1 / 1.41;
+    width: min(28rem, 95vw);
+    outline: 3px solid var(--main-color);
+}
