@@ -1,5 +1,7 @@
 import "./Main.css";
 
+import myPortrait from "Assets/self-portrait.svg";
+
 import myLogoRaw from "/icon.svg?raw";
 
 import GitHubIssueBadge from "./GitHubIssueBadge";
@@ -11,6 +13,7 @@ export default function Main() {
 			//Very hack, much wow!
 		}
 		<div className="my-logo" dangerouslySetInnerHTML={{__html: myLogoRaw}}></div>
+		<img className="my-portrait" src={myPortrait}/>
 		<section aria-labelledby="todos-heading">
 			<details>
 				<summary id="todos-heading" >Список TODO прямо по серерине, чтобы я не забыл</summary>
