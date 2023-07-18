@@ -24,3 +24,13 @@ footer {
   margin: var(--body-margin);
   text-align: center;
 }
+
+
+.project-dialog-wrapper {
+  position: absolute;
+  z-index: 9999;
+}
+
+.project-dialog-wrapper dialog {
+  top: 4rem;
+}

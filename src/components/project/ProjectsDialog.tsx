@@ -1,3 +1,5 @@
+import "./ProjectsDialog.css";
+
 import { projects } from "Data/projects.json";
 import { useRef } from "react";
 import { Project } from "Types";
@@ -5,10 +7,10 @@ import { isSmallScreen } from "Utils";
 
 import ProjectItem from "./ProjectItem";
 
-export default function ProjectsDialog(onProjectChange: (arg0: null | Project) => void) {
+export default function useProjectsDialog(onProjectChange: (arg0: null | Project) => void) {
 	const projectDialogRef = useRef<HTMLDialogElement>(null);
 	const projectDialogContentWrapperRef = useRef<HTMLDivElement>(null);
-	const projectsButtonDialogRef = useRef<HTMLButtonElement>(null);
+	const projectsButtonDialogRef = useRef<HTMLAnchorElement>(null);
 
 
 	const renderProjectsByTag = (tag: string) => {
@@ -74,7 +76,7 @@ export default function ProjectsDialog(onProjectChange: (arg0: null | Project) =
 		document.addEventListener("click", handleClick);
 	};
 
-	const projectDialogButton = <button onClick={open} ref={projectsButtonDialogRef}>Выбрать проект</button>;
+	const projectDialogButton = <a onClick={open} ref={projectsButtonDialogRef} className="text-button">Projects</a>;
 
 	const projectDialog = <dialog ref={projectDialogRef}>
 		<div className='dialog-wrapper' ref={projectDialogContentWrapperRef}>
@@ -98,8 +100,5 @@ export default function ProjectsDialog(onProjectChange: (arg0: null | Project) =
 			</section>
 		</div>
 	</dialog>;
-	return {
-		projectDialogButton,
-		projectDialog
-	};
+	return [projectDialogButton, projectDialog] ;
 }

@@ -15,10 +15,12 @@
     position: absolute;
     left: calc(50% - var(--my-logo-radius));
     top: 1rem;
+    right: -7rem;
 }
 
 .portrait-image {
     aspect-ratio: 1 / 1.41;
-    width: min(28rem, 95vw);
-    outline: 3px solid var(--main-color);
+    width: min(30rem, 95vw);
+    border: 3px solid var(--main-color);
+    border-radius: 5rem;
 }

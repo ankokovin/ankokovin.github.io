@@ -5,21 +5,17 @@ import emailLogoWhite from "Assets/email-address-svgrepo-com-white.svg";
 import telegramLogo from "Assets/telegram-fill-svgrepo-com.svg";
 import telegramLogoWhite from "Assets/telegram-fill-svgrepo-com-white.svg";
 
-import { Project } from "../../types";
 import Logo from "../Logo";
 import DarkModeToggle from "./DarkModeToggle";
-import ProjectsDialog from "./ProjectsDialog";
 
 
-function Header(props: { onProjectChange: (arg0: null | Project) => void; home: () => void}) {
-	const {projectDialogButton, projectDialog} = ProjectsDialog(props.onProjectChange);
+function Header(props: { home: () => void, projectDialogButton: JSX.Element}) {
 
 	return (
 		<>
 			<header>
-				<button onClick={props.home}>🏠</button>
-				<DarkModeToggle />
-				{projectDialogButton}
+				<a className="text-button" onClick={props.home}>Home</a>
+				{props.projectDialogButton}
 				<Logo
 					href="https://t.me/ankokovin"
 					title="Мой Telegram"
@@ -36,8 +32,7 @@ function Header(props: { onProjectChange: (arg0: null | Project) => void; home: 
 					alt="Email icon"
 					imgClasses={["header-logo"]}
 				/>
-				
-				{projectDialog}
+				<DarkModeToggle />
 			</header>
 		</>
 	);

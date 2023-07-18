@@ -33,3 +33,18 @@ details[open] summary {
     border-bottom: 1px solid #aaa;
     margin-bottom: 0.5em;
 }
+
+main {
+    margin: 4rem;
+    display: grid;
+    grid-template-areas: "portrait content";
+    gap: 4rem;
+}
+
+.portrait {
+    grid-area: "portrait";
+}
+
+.content {
+    grid-area: "content";
+}

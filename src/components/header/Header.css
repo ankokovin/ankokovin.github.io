@@ -3,9 +3,13 @@ header {
     gap: 10px;
 
     /* There should be a better way to do this */
-    grid-template-columns: repeat(2, 2rem) 5rem repeat(3, 2rem);
-    align-items: start;
+    grid-template-columns: repeat(2, 4rem) repeat(3, 2rem);
+    align-items: center;
+    margin-left: 5px;
+    margin-top: 5px;
 }
+
+
 
 .header-logo {
     width: 2rem;
@@ -16,65 +20,7 @@ header {
     filter: drop-shadow(0 0 1em #fff);
 }
 
-dialog {
-    padding: 0;
-    background-color: var(--background-color);
-    color: var(--main-color);
-}
-
-.dialog-close-button {
-    position: absolute;
-    right: var(--padding);
-    width: 30px;
-    height: 30px;
-    border: 0;
-    padding: 0;
-    background: none;
-}
-
-.dialog-close-button > svg {
-    width: 30px;
-    height: 30px;
-}
-
-@media screen and (width >= 600px) {
-    dialog[open] {
-        grid-row-start: 2;
-        grid-column:1 / -1;
-        position: relative;
-    }
-    
-    .dialog-close-button {
-        display: none;
-    }
-}
-
-
-.dialog-wrapper {
-    --padding: 16px;
-
-    padding: var(--padding);
-}
-
-.project-container {
-    display: grid;
-}
-
-.tag-logo {
-    height: 1em;
-}
-
-
-.tag-strikethrough {
-    position: relative;
-}
-
-.tag-strikethrough::before {
-    position: absolute;
-    content: "";
-    left: 0;
-    right: 0;
-    top: 50%;
-    border-top: 3px solid red;
-    transform: rotate(-45deg);
+header .text-button {
+    border: solid var(--main-color) 1px;
+    border-radius: 7px;
 }

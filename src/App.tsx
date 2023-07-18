@@ -5,6 +5,7 @@ import Header from "Components//header";
 import Main from "Components//main";
 import BlogMain from "Components/blog";
 import DisplayProject from "Components/project";
+import useProjectsDialog from "Components/project/ProjectsDialog";
 import { projects } from "Data/projects.json";
 import { useCallback, useState } from "react";
 import {
@@ -55,8 +56,10 @@ export default function App() {
 		router.navigate(`/project/${project.id}`);
 	}, []);
 
-	const [currentScheme, setCurrentScheme] = useState<Scheme>(getPreferredColorScheme());
+	const [projectDialogButton, projectDialog] =  useProjectsDialog(onProjectChange);
 
+	const [currentScheme, setCurrentScheme] = useState<Scheme>(getPreferredColorScheme());
+	
 
 	const darkModeContextValue = {
 		isDarkMode: currentScheme === "dark",
@@ -65,8 +68,11 @@ export default function App() {
 	};
 
 	return (
-		<DarkModeContext.Provider value={darkModeContextValue} >
-			<Header onProjectChange={onProjectChange} home={() => router.navigate("/")}/>
+		<DarkModeContext.Provider value={darkModeContextValue}>
+			<Header home={() => router.navigate("/")} projectDialogButton={projectDialogButton} />
+			<div className="project-dialog-wrapper">
+				{projectDialog}
+			</div>
 			<RouterProvider router={router}/>
 			<Footer />
 		</DarkModeContext.Provider>

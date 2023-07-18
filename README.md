@@ -18,3 +18,5 @@ This page contains various my projects created <del>mostly</del> while getting m
 This page <del>is</del> will be written in React + Typescript just cause. Currently it is in russian, english translation is planned (just for the page, not for old projects).  
 
 Initially it was Vanila JS with jQuery <del>(boo)</del>, https://ankokovin.github.io/legacy/
+
+https://www.figma.com/file/iCkXYCYj7JYJk2Tfs2l6TT/my-site?type=design&node-id=2%3A2&mode=dev

@@ -1,0 +1,61 @@
+dialog {
+	padding: 0;
+	background-color: var(--background-color);
+	color: var(--main-color);
+	width:max-content;
+}
+
+.dialog-close-button {
+	position: absolute;
+	right: var(--padding);
+	width: 30px;
+	height: 30px;
+	border: 0;
+	padding: 0;
+	background: none;
+}
+
+.dialog-close-button > svg {
+	width: 30px;
+	height: 30px;
+}
+
+@media screen and (width >= 600px) {
+	dialog[open] {
+		position: absolute;
+	}
+	
+	.dialog-close-button {
+			display: none;
+	}
+}
+
+
+.dialog-wrapper {
+	--padding: 16px;
+
+	padding: var(--padding);
+}
+
+.project-container {
+	display: grid;
+}
+
+.tag-logo {
+	height: 1em;
+}
+
+
+.tag-strikethrough {
+	position: relative;
+}
+
+.tag-strikethrough::before {
+	position: absolute;
+	content: "";
+	left: 0;
+	right: 0;
+	top: 50%;
+	border-top: 3px solid red;
+	transform: rotate(-45deg);
+}
