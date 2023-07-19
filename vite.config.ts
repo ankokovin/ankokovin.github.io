@@ -3,6 +3,8 @@ import path from "path";
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
+import blogsJsonCompilePlugin from "./blogsJsonCompilePlugin";
+
 // https://vitejs.dev/config/
 export default defineConfig({
 	resolve: {
@@ -25,9 +27,14 @@ export default defineConfig({
 				},
 				{
 					src: path.resolve(__dirname, "./src/data/posts/imgs/[!.]*"),
-					dest: "./imgs"
+					dest: "./posts/imgs"
+				},
+				{
+					src: path.resolve(__dirname, "./src/data/posts/[!.]*.html"),
+					dest: "./posts"
 				}
 			]
 		}),
+		blogsJsonCompilePlugin()
 	],
 });
