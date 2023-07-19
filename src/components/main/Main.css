@@ -34,21 +34,19 @@ details[open] summary {
     margin-bottom: 0.5em;
 }
 
-main {
+.main-page {
     margin: 4rem;
     display: grid;
     grid-template-areas:    "portrait"
                                 "content";
     grid-template-columns: 1fr;
     gap: 4rem;
-    justify-self: center;
 }
 
 @media screen and (width >= 1024px) {
-	main {
+	.main-page {
         grid-template-areas: "portrait content";
         grid-template-columns: 1fr 2fr;
-        max-width: 1440px;
     }
 }
 

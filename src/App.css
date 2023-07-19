@@ -4,6 +4,8 @@ header {
 
 main {
   grid-area: main;
+  max-width: 1440px;
+  justify-self: center;
 }
 
 footer {
@@ -24,7 +26,6 @@ footer {
   margin: var(--body-margin);
   text-align: center;
 }
-
 
 .project-dialog-wrapper {
   position: absolute;

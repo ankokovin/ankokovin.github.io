@@ -6,7 +6,7 @@ import Portait from "./Portrait";
 
 export default function Main() {
 
-	return <main>
+	return <main className="main-page">
 		<Portait/>
 		<div className="content">
 			<h1>Коковин Алексей</h1>
