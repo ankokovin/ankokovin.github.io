@@ -2,6 +2,7 @@
     position: relative;
 
     --my-logo-radius: min(4rem, calc(95vw / (28 / 4)));
+    --portrait-width: min(30rem, 40vw);
 }
 
 .portrait-logo>svg  {
@@ -13,14 +14,19 @@
 
 .portrait-logo {
     position: absolute;
-    left: calc(50% - var(--my-logo-radius));
     top: 1rem;
-    right: -7rem;
+    right: calc(50% - var(--portrait-width) / 2 + var(--my-logo-radius) / 2);
 }
 
 .portrait-image {
     aspect-ratio: 1 / 1.41;
-    width: min(30rem, 95vw);
+    width: var(--portrait-width);
     border: 3px solid var(--main-color);
     border-radius: 5rem;
+}
+
+@media screen and (width < 1024px) {
+	.portrait-logo  {
+        display: none;
+    }
 }

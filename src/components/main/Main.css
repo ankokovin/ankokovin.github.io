@@ -37,14 +37,25 @@ details[open] summary {
 main {
     margin: 4rem;
     display: grid;
-    grid-template-areas: "portrait content";
+    grid-template-areas:    "portrait"
+                                "content";
+    grid-template-columns: 1fr;
     gap: 4rem;
+    justify-self: center;
+}
+
+@media screen and (width >= 1024px) {
+	main {
+        grid-template-areas: "portrait content";
+        grid-template-columns: 1fr 2fr;
+        max-width: 1440px;
+    }
 }
 
 .portrait {
-    grid-area: "portrait";
+    grid-area: portrait;
 }
 
 .content {
-    grid-area: "content";
+    grid-area: content;
 }
