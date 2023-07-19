@@ -4,17 +4,18 @@ import emailLogo from "Assets/email-address-svgrepo-com.svg";
 import emailLogoWhite from "Assets/email-address-svgrepo-com-white.svg";
 import telegramLogo from "Assets/telegram-fill-svgrepo-com.svg";
 import telegramLogoWhite from "Assets/telegram-fill-svgrepo-com-white.svg";
+import {Link} from "react-router-dom";
 
 import Logo from "../Logo";
 import DarkModeToggle from "./DarkModeToggle";
 
 
-function Header(props: { home: () => void, projectDialogButton: JSX.Element}) {
+function Header(props: { projectDialogButton: JSX.Element}) {
 
 	return (
 		<>
 			<header>
-				<a className="text-button" onClick={props.home}>Home</a>
+				<Link className="text-button" to={"/"}>Home</Link>
 				{props.projectDialogButton}
 				<Logo
 					href="https://t.me/ankokovin"

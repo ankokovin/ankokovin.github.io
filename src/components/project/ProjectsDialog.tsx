@@ -10,7 +10,7 @@ import ProjectItem from "./ProjectItem";
 export default function useProjectsDialog(onProjectChange: (arg0: null | Project) => void) {
 	const projectDialogRef = useRef<HTMLDialogElement>(null);
 	const projectDialogContentWrapperRef = useRef<HTMLDivElement>(null);
-	const projectsButtonDialogRef = useRef<HTMLAnchorElement>(null);
+	const projectsButtonDialogRef = useRef<HTMLButtonElement>(null);
 
 
 	const renderProjectsByTag = (tag: string) => {
@@ -76,7 +76,7 @@ export default function useProjectsDialog(onProjectChange: (arg0: null | Project
 		document.addEventListener("click", handleClick);
 	};
 
-	const projectDialogButton = <a onClick={open} ref={projectsButtonDialogRef} className="text-button">Projects</a>;
+	const projectDialogButton = <button onClick={open} ref={projectsButtonDialogRef} className="text-button">Projects</button>;
 
 	const projectDialog = <dialog ref={projectDialogRef}>
 		<div className='dialog-wrapper' ref={projectDialogContentWrapperRef}>
