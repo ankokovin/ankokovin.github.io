@@ -2,3 +2,7 @@ iframe {
 	width: 100%;
 	height: 65vh;
 }
+
+.display-project {
+	min-width: 95%;
+}
