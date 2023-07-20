@@ -6,5 +6,5 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/vite-plugin-posts-json-compile.ts", "vite.config.ts"]
+  "include": ["vite-plugin-posts-json-compile/index.ts", "vite-plugin-posts-json-compile/types.d.ts", "vite.config.ts"]
 }

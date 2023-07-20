@@ -4,49 +4,17 @@ import {gitlogPromise} from "gitlog";
 import { resolve } from "path";
 import { PluginOption, ResolvedConfig } from "vite";
 
-export interface PostsInfo {
-	/** Name of html file */
-    file: string,
-	/** Timestamp of first commit */
-    created: number,
-	/** Timestamp of last commit */
-	lastUpdated: number,
-	/** Name of the first commit author*/
-    author: string
-}
-
-export interface PostsJsonCompilePluginParams {
-	/** The location of html posts */
-	postsPath: string,
-	/** The target location of JSON file with post`s information, specified relative to outDir */
-	outIndexPath: string, 
-	/** 
-	 * The name of JSON file with post`s information 
-	 * 
-	 * @default 'index.json'
-	*/
-	indexFileName?: string,
-	/** 
-	 * The location of the git repo 
-	 * 
-	 * @default __dirname
-	*/
-	repo?: string,
-	/**
-	 * Output information to stdout
-	 * 
-	 * @default false
-	 */
-	verbose?: boolean,
-}
+import { PostInfo, PostsJsonCompilePluginParams } from "./types";
 
 export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, indexFileName = "index.json", repo = __dirname, verbose = false}: PostsJsonCompilePluginParams) : PluginOption{
 	const PLUGIN_NAME = "vite-plugin-posts-json-compile";
 
 	let viteConfig = null as null | ResolvedConfig;
 
-	async function getPostHistory(file: string) : Promise<PostsInfo> {
-		const timeLable = `\n${PLUGIN_NAME}: Ran post ${file} in`;
+	const PLUGIN_LOG_PREFIX = `\x1b[96m[${PLUGIN_NAME}]\x1b[00m`;
+
+	async function getPostHistory(file: string) : Promise<PostInfo> {
+		const timeLable = `\n${PLUGIN_LOG_PREFIX} Ran post ${file} in`;
 		if (verbose) {
 			console.time(timeLable);
 		}
@@ -77,8 +45,8 @@ export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, ind
 		};
 	}
 
-	async function getPosts(): Promise<PostsInfo[]> {
-		return await Promise.all(fs.readdirSync(postsPath)
+	function getPosts(): Promise<PostInfo[]> {
+		return Promise.all(fs.readdirSync(postsPath)
 			.filter(file => file.endsWith(".html"))
 			.map(file => getPostHistory(file)));
 	}
@@ -89,10 +57,10 @@ export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, ind
 			viteConfig = resolvedConfig;
 		},
 		async writeBundle() {
-			const timeLable = `${PLUGIN_NAME}: Compiled posts in`;
+			const timeLable = `${PLUGIN_LOG_PREFIX} Compiled posts in`;
 			
 			if (verbose) {
-				console.log(`\n${PLUGIN_NAME}: Compiling posts\n`);
+				console.log(`\n${PLUGIN_LOG_PREFIX} Compiling posts ...\n`);
 				console.time(timeLable);	
 			}
 			
@@ -109,12 +77,16 @@ export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, ind
 			}
 
 			const fileOutPath = resolve(outIndexDir, indexFileName);
-			const result = getPosts();
+			const result = await getPosts();
+
+			if (!result || !result.length) {
+				console.warn(`${PLUGIN_LOG_PREFIX} \x1b[33mResult is empty!\x1b[0m`)
+			}
 
 			fs.writeFileSync(fileOutPath, JSON.stringify(result));
 
 			if (verbose) {
-				console.log(`\n${PLUGIN_NAME}: Compiled posts info at ${fileOutPath} ${filesize(fs.statSync(fileOutPath).size)}`);
+				console.log(`\n${PLUGIN_LOG_PREFIX} Compiled posts info at ${fileOutPath} ${filesize(fs.statSync(fileOutPath).size)}`);
 				console.timeEnd(timeLable);
 			}
 		},

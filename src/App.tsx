@@ -35,7 +35,12 @@ export default function App() {
 			path: "/blog",
 			element: <DefaultLayout>
 				<BlogMain />
-			</DefaultLayout> 
+			</DefaultLayout>,
+			loader: async () => {
+				const res = await fetch("/posts/index.json");
+
+				return await res.json();
+			} 
 		}
 	]);
 
