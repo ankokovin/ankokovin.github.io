@@ -1,15 +1,13 @@
 import "./Blog.css";
 
-import {PostInfo} from "Plugin/types";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { Post, PostIndex } from "Types";
 
-export interface Post extends PostInfo {
-	html: string
-}
+import PostComponent from "./PostComponent";
 
 export default function BlogMain() {
-	const postsInfo = useLoaderData() as PostInfo[];
+	const postsInfo = useLoaderData() as PostIndex;
 
 	const [posts, setPosts] = useState([] as Post[]);
 
@@ -57,18 +55,13 @@ export default function BlogMain() {
 	}, [observerTarget, fetchData]);
 
 	return <main className="blog">
-		{posts.map(post => <div key={post.file} className="post">
-			<div className="post-info">
-				<div>
-					Author: {post.author}
-				</div>
-				<div>
-					Created: {new Date(post.created).toLocaleDateString()}
-				</div>
-				{post.created != post.lastUpdated && (<div>Updated: {new Date(post.lastUpdated).toLocaleDateString()}</div>)}
+		{posts.map(post => <>
+			<div key={post.file} className="post">
+				<PostComponent post={post}/>
 			</div>
-			<article dangerouslySetInnerHTML={{ __html: post.html }} lang="ru" />
-		</div>)}
+			<hr />
+		</> 
+		)}
 		<div ref={observerTarget}></div>
 	</main>;
 }

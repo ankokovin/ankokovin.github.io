@@ -4,7 +4,7 @@ import {gitlogPromise} from "gitlog";
 import { resolve } from "path";
 import { PluginOption, ResolvedConfig } from "vite";
 
-import { PostInfo, PostsJsonCompilePluginParams } from "./types";
+import { PostIndex, PostInfo, PostsJsonCompilePluginParams } from "./types";
 
 export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, indexFileName = "index.json", repo = __dirname, verbose = false}: PostsJsonCompilePluginParams) : PluginOption{
 	const PLUGIN_NAME = "vite-plugin-posts-json-compile";
@@ -12,6 +12,8 @@ export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, ind
 	let viteConfig = null as null | ResolvedConfig;
 
 	const PLUGIN_LOG_PREFIX = `\x1b[96m[${PLUGIN_NAME}]\x1b[00m`;
+
+	const DEFAULT_COMMIT = {date: Date.now(), author: "Unknown"};
 
 	async function getPostHistory(file: string) : Promise<PostInfo> {
 		const timeLable = `\n${PLUGIN_LOG_PREFIX} Ran post ${file} in`;
@@ -30,8 +32,8 @@ export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, ind
 				author: commit.authorName 
 			};
 		});
-		const firstCommit = gitLogs.reduce((p, v) => p.date > v.date ? v : p);
-		const lastCommit = gitLogs.reduce((p, v) => p.date < v.date ? v : p);
+		const firstCommit = gitLogs.length ? gitLogs.reduce((p, v) => p.date > v.date ? v : p) : DEFAULT_COMMIT;
+		const lastCommit = gitLogs.length ? gitLogs.reduce((p, v) => p.date < v.date ? v : p) : DEFAULT_COMMIT;
 
 		if (verbose) {
 			console.timeEnd(timeLable);
@@ -45,10 +47,11 @@ export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, ind
 		};
 	}
 
-	function getPosts(): Promise<PostInfo[]> {
-		return Promise.all(fs.readdirSync(postsPath)
+	async function getPostsIndex(): Promise<PostIndex> {
+		return (await Promise.all(fs.readdirSync(postsPath)
 			.filter(file => file.endsWith(".html"))
-			.map(file => getPostHistory(file)));
+			.map(file => getPostHistory(file))))
+			.sort((a, b) => b.created - a.created);
 	}
 	
 	return {
@@ -77,7 +80,7 @@ export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, ind
 			}
 
 			const fileOutPath = resolve(outIndexDir, indexFileName);
-			const result = await getPosts();
+			const result = await getPostsIndex();
 
 			if (!result || !result.length) {
 				console.warn(`${PLUGIN_LOG_PREFIX} \x1b[33mResult is empty!\x1b[0m`)
@@ -93,7 +96,7 @@ export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, ind
 		configureServer(server) {
 			server.middlewares.use(async (req, res, next) => {
 				if(req.method === "GET" && req.url?.endsWith(`${outIndexPath}/${indexFileName}`)) {
-					res.end(JSON.stringify(await getPosts()));
+					res.end(JSON.stringify(await getPostsIndex()));
 					return;
 				}
 				next();

@@ -10,6 +10,8 @@ export interface PostInfo {
 	author: string;
 }
 
+export type PostIndex = PostInfo[];
+
 export interface PostsJsonCompilePluginParams {
 	/** The location of html posts */
 	postsPath: string,

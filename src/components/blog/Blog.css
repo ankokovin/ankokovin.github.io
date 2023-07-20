@@ -1,12 +1,17 @@
-.blog {
+.post {
 	overflow-wrap: break-word;
 	text-align: start;
 }
 
-.blog .long-string {
+.post .long-string {
 	overflow-wrap: anywhere;
 }
 
-.blog img {
+.post img {
 	max-width: 100%;
+}
+
+.post h1,
+.post h2 {
+	text-align: center;
 }
