@@ -28,6 +28,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "filesize": "^10.0.7",
     "gitlog": "^4.0.8",
     "stylelint": "^15.10.1",
     "stylelint-config-standard": "^33.0.0",

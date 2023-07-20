@@ -35,6 +35,6 @@ export default defineConfig({
 				}
 			]
 		}),
-		blogsJsonCompilePlugin()
+		blogsJsonCompilePlugin({outIndexPath: "posts", postsPath: "./src/data/posts/"})
 	],
 });
