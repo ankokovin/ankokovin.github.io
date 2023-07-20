@@ -35,4 +35,10 @@ export interface PostsJsonCompilePluginParams {
 	 * @default false
 	 */
 	verbose?: boolean,
+	/**
+	 * Output debug information
+	 * 
+	 * @default false
+	 */
+	debug?: boolean
 }

@@ -36,6 +36,6 @@ export default defineConfig({
 				}
 			]
 		}),
-		vitePluginPostsJsonCompile({outIndexPath: "posts", postsPath: "./src/data/posts/", verbose: true})
+		vitePluginPostsJsonCompile({outIndexPath: "posts", postsPath: "./src/data/posts/", verbose: true, debug: true})
 	],
 });

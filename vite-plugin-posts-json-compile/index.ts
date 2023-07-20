@@ -6,7 +6,7 @@ import { PluginOption, ResolvedConfig } from "vite";
 
 import { PostIndex, PostInfo, PostsJsonCompilePluginParams } from "./types";
 
-export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, indexFileName = "index.json", repo = __dirname, verbose = false}: PostsJsonCompilePluginParams) : PluginOption{
+export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, indexFileName = "index.json", repo = __dirname, verbose = false, debug = false}: PostsJsonCompilePluginParams) : PluginOption{
 	const PLUGIN_NAME = "vite-plugin-posts-json-compile";
 
 	let viteConfig = null as null | ResolvedConfig;
@@ -27,6 +27,9 @@ export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, ind
 			repo,
 			file: filePath,
 		})).map(commit => {
+			if (debug) {
+				console.debug(`${PLUGIN_LOG_PREFIX} ${file} got git logs`, commit)
+			}
 			return {
 				date: Date.parse(commit.authorDate),
 				author: commit.authorName 
@@ -37,6 +40,10 @@ export default function vitePluginPostsJsonCompile({outIndexPath, postsPath, ind
 
 		if (verbose) {
 			console.timeEnd(timeLable);
+		}
+
+		if (debug) {
+			console.debug(`${PLUGIN_LOG_PREFIX} ${file}`, {firstCommit, lastCommit})
 		}
 		
 		return {
