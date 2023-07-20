@@ -3,7 +3,7 @@ import path from "path";
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
-import vitePluginBlogsJsonCompile from "./src/vite-plugin-blogs-json-compile";
+import vitePluginPostsJsonCompile from "./src/vite-plugin-posts-json-compile";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -35,6 +35,6 @@ export default defineConfig({
 				}
 			]
 		}),
-		vitePluginBlogsJsonCompile({outIndexPath: "posts", postsPath: "./src/data/posts/"})
+		vitePluginPostsJsonCompile({outIndexPath: "posts", postsPath: "./src/data/posts/"})
 	],
 });
