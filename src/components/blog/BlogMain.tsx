@@ -54,13 +54,13 @@ export default function BlogMain() {
 		};
 	}, [observerTarget, fetchData]);
 
+
 	return <main className="blog">
-		{posts.map(post => <>
+		{posts.map(post =>
 			<div key={post.file} className="post">
 				<PostComponent post={post}/>
+				<hr />
 			</div>
-			<hr />
-		</> 
 		)}
 		<div ref={observerTarget}></div>
 	</main>;
